@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Adventure | Money Matters</title>
+<style>
+:root{
+  --pink:#f7b8d2; --pink-dark:#b83270; --lav:#ded0ff; --lav-dark:#6541a5;
+  --mint:#bfeedd; --mint-dark:#176b53; --yellow:#ffe7a0; --ink:#43354a;
+  --cream:#fffafc; --white:#fff; --shadow:0 10px 28px rgba(112,65,120,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(135deg,#fff8fc,#f7f2ff 55%,#f3fff9);color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif;line-height:1.55}
+button,input{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+a{color:var(--pink-dark)}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(255,250,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid #f1ddec}
+.header-inner{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--pink-dark);font-size:1.08rem}
+.brand-mark{width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,var(--pink),var(--lav));display:grid;place-items:center;font-size:1.35rem;box-shadow:var(--shadow)}
+nav{display:flex;flex-wrap:wrap;gap:6px}
+nav button{border:0;background:transparent;color:var(--ink);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:800}
+nav button:hover,nav button.active{background:var(--pink);color:#6b2046}
+main{max-width:1120px;margin:auto;padding:24px 20px 56px}
+.page{display:none;animation:fade .22s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.hero{border-radius:30px;padding:clamp(26px,5vw,58px);background:linear-gradient(125deg,#f9c5dc 0%,#eadcff 48%,#c8f1df 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"✦  ✧  ✦";position:absolute;right:22px;top:18px;color:#fff;font-size:2rem;letter-spacing:8px;opacity:.9}
+.eyebrow{display:inline-block;background:#fff9;border:1px solid #fff;padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+h1{font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.04;margin:18px 0 12px;color:#8e2e68;letter-spacing:-.04em}
+h2{font-size:clamp(1.7rem,3vw,2.35rem);color:#8e2e68;line-height:1.15;margin:0 0 12px}
+h3{margin:0 0 8px;color:#60418b}
+p{margin:8px 0 14px}
+.lead{font-size:1.12rem;max-width:700px}
+.button-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:15px;background:var(--pink-dark);color:#fff;font-weight:900;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 #91265a;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.secondary{background:var(--lav-dark);box-shadow:0 5px 0 #4c2d84}
+.btn.mint{background:var(--mint-dark);box-shadow:0 5px 0 #10513f}
+.btn.yellow{background:#a86b00;box-shadow:0 5px 0 #825200}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:34px 0 16px}
+.section-heading p{max-width:570px;color:#6e6174}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:rgba(255,255,255,.92);border:1px solid #f0e3f1;border-radius:24px;padding:22px;box-shadow:var(--shadow)}
+.resource-card{display:flex;gap:16px;align-items:flex-start}
+.icon{flex:0 0 54px;width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:1.7rem}
+.pink-bg{background:#ffe0ed}.lav-bg{background:#eee5ff}.mint-bg{background:#d8f8e9}.yellow-bg{background:#fff0bd}
+.tag{font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#7b5d83}
+.list{padding-left:22px}.list li{margin:8px 0}
+.example{background:#fff5fa;border:2px dashed #e8a9ca;border-radius:18px;padding:18px;margin:16px 0}
+.mathline{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:#8e2e68;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.step{padding:14px;border-radius:16px;background:#fff;border:1px solid #eee0f4}
+.step b{display:block;color:#8e2e68;margin-bottom:4px}
+.lab-controls{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.control{background:#fff;border:1px solid #eadff1;border-radius:18px;padding:18px}
+.control label{display:flex;justify-content:space-between;gap:8px;font-weight:900}
+input[type=range]{width:100%;accent-color:#b83270;margin:18px 0 8px}
+.total-box{background:linear-gradient(135deg,#d6f7e8,#eee5ff);padding:24px;border-radius:22px;text-align:center;margin-top:16px}
+.total-number{font-size:clamp(2rem,6vw,3rem);font-weight:1000;color:#176b53}
+.small{font-size:.9rem;color:#6e6174}
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.product{border-radius:18px;padding:16px 12px;text-align:center;background:#fff;border:1px solid #eee0f4}
+.product .emoji{font-size:2.3rem}
+.price{font-size:1.15rem;font-weight:900;color:#8e2e68}
+.shop-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
+.shop-controls label{display:flex;gap:8px;align-items:center;background:#fff;padding:10px 12px;border-radius:12px;border:1px solid #eadff1}
+select{border:1px solid #d9c9e4;border-radius:9px;padding:8px;background:white;color:var(--ink)}
+.quiz-q{padding:18px;background:#fff;border:1px solid #eee0f4;border-radius:18px;margin:14px 0}
+.quiz-q legend{font-weight:900;color:#60418b;padding:0 5px}
+.option{display:block;padding:8px 10px;border-radius:10px;margin:5px 0;cursor:pointer}
+.option:hover{background:#fff2f8}
+.option input{margin-right:8px;accent-color:#b83270}
+.feedback{font-weight:900;margin-top:8px}
+.notice{padding:14px 16px;border-radius:14px;background:#fff4cc;border:1px solid #f2dc88;margin:16px 0}
+footer{text-align:center;padding:26px 18px;background:#fff7fc;border-top:1px solid #f1ddec;color:#76677c;font-size:.9rem}
+footer strong{color:#8e2e68}
+hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
+@media(max-width:760px){
+ .header-inner{align-items:flex-start;flex-direction:column}
+ nav{width:100%}nav button{padding:8px 10px;font-size:.88rem}
+ .grid,.lab-controls{grid-template-columns:1fr}
+ .steps{grid-template-columns:repeat(2,1fr)}
+ .shop-grid{grid-template-columns:repeat(2,1fr)}
+ .resource-card{gap:12px}.card{padding:18px}
+}
+@media print{.site-header,.button-row,button{display:none!important}.page{display:block!important;page-break-after:always}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><span class="brand-mark">🎀</span><span>Math Adventure<br><span style="font-size:.75rem;color:#6e6174;font-weight:700">Money Matters · Year 3</span></span></div>
+    <nav aria-label="Main navigation">
+      <button class="active" data-page="home">🏠 Home</button>
+      <button data-page="learn">📚 Learn It</button>
+      <button data-page="explore">🔍 Explore It</button>
+      <button data-page="shop">🛍️ Shop & Solve</button>
+      <button data-page="quiz">🏆 Quiz Quest</button>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="page active" id="home">
+    <div class="hero">
+      <span class="eyebrow">Year 3 Mathematics · Numbers & Operations</span>
+      <h1>Money Matters:<br>Let's Add! ✨</h1>
+      <p class="lead">Hello, little mathematicians! Welcome to a pastel-coloured world where we learn to add money, explore changing values, shop for school supplies and become confident Money Masters.</p>
+      <div class="button-row">
+        <button class="btn" data-go="learn">Start learning 💗</button>
+        <button class="btn secondary" data-go="explore">Enter the Money Lab 🔍</button>
+      </div>
+    </div>
+    <div class="section-heading"><div><h2>Your learning journey</h2><p>Four connected activities take you from understanding to exploring, applying and checking your learning.</p></div></div>
+    <div class="grid">
+      <article class="card resource-card"><div class="icon pink-bg">📚</div><div><span class="tag">01 · Understand</span><h3>Learn It!</h3><p>Learn how to add money values step by step using worked examples.</p><button class="btn" data-go="learn">Open lesson</button></div></article>
+      <article class="card resource-card"><div class="icon mint-bg">🔍</div><div><span class="tag">02 · Explore</span><h3>Explore It!</h3><p>Change the amounts and watch the total update instantly.</p><button class="btn mint" data-go="explore">Open Money Lab</button></div></article>
+      <article class="card resource-card"><div class="icon yellow-bg">🛍️</div><div><span class="tag">03 · Apply</span><h3>Shop & Solve!</h3><p>Choose school supplies and calculate the total cost.</p><button class="btn yellow" data-go="shop">Visit mini-market</button></div></article>
+      <article class="card resource-card"><div class="icon lav-bg">🏆</div><div><span class="tag">04 · Check</span><h3>Quiz Quest!</h3><p>Try ten questions and see which skills you have mastered.</p><button class="btn secondary" data-go="quiz">Take the quiz</button></div></article>
+    </div>
+    <div class="section-heading"><div><h2>🎯 Learning goals</h2><p>By the end of this adventure, you should be able to:</p></div></div>
+    <div class="card"><ul class="list"><li>Add two money values with totals up to RM10,000.</li><li>Explain how changing one amount affects the sum.</li><li>Solve real-life shopping problems involving addition of money.</li><li>Check calculations and learn from feedback.</li></ul></div>
+  </section>
+
+  <section class="page" id="learn">
+    <div class="hero"><span class="eyebrow">Station 01 · Understand</span><h1>📚 Learn It!</h1><p class="lead">Let's learn to add money carefully. Keep the place values aligned, calculate one column at a time, and check your answer.</p></div>
+    <div class="section-heading"><div><h2>How to add money</h2><p>Use these four steps whenever you solve an addition question.</p></div></div>
+    <div class="steps">
+      <div class="step"><b>1. Write</b>Arrange the amounts in columns.</div>
+      <div class="step"><b>2. Align</b>Keep the same place values together.</div>
+      <div class="step"><b>3. Add</b>Add from the smallest place value and regroup when needed.</div>
+      <div class="step"><b>4. Check</b>Estimate or use the inverse operation to check.</div>
+    </div>
+    <div class="example"><div class="tag">Worked example</div><div class="mathline">RM1,250 + RM2,375 = RM3,625</div><p>Thousands: 1,000 + 2,000 = 3,000<br>Hundreds: 200 + 300 = 500<br>Tens: 50 + 70 = 120<br>Ones: 0 + 5 = 5<br>Total: RM3,625.</p></div>
+    <div class="grid">
+      <div class="card"><h3>✏️ Your turn</h3><p>Calculate RM2,430 + RM1,560.</p><details><summary><strong>Show answer</strong></summary><p>RM2,430 + RM1,560 = <strong>RM3,990</strong>.</p></details></div>
+      <div class="card"><h3>🌟 Try a challenge</h3><p>Calculate RM4,125 + RM875. Explain how you checked your answer.</p><details><summary><strong>Show answer</strong></summary><p>RM4,125 + RM875 = <strong>RM5,000</strong>.</p></details></div>
+    </div>
+    <div class="notice">Teacher note: These are illustrative learning examples. Adapt the lesson to your pupils' prior knowledge and the exact curriculum requirements.</div>
+    <div class="button-row"><button class="btn mint" data-go="explore">Next: Explore It! →</button></div>
+  </section>
+
+  <section class="page" id="explore">
+    <div class="hero"><span class="eyebrow">Station 02 · Investigate</span><h1>🔍 Explore It!</h1><p class="lead">Welcome to the Money Lab! Move the sliders to change two money values. The total updates as you explore.</p></div>
+    <div class="section-heading"><div><h2>Interactive Money Lab</h2><p>Try changing one amount while keeping the other amount the same.</p></div></div>
+    <div class="lab-controls">
+      <div class="control"><label for="amountA"><span>💗 First amount</span><span id="labelA">RM1,250</span></label><input id="amountA" type="range" min="0" max="5000" step="50" value="1250"><div class="small">Move the slider from RM0 to RM5,000.</div></div>
+      <div class="control"><label for="amountB"><span>💜 Second amount</span><span id="labelB">RM2,375</span></label><input id="amountB" type="range" min="0" max="5000" step="50" value="2375"><div class="small">Move the slider from RM0 to RM5,000.</div></div>
+    </div>
+    <div class="total-box"><div class="tag">Your total</div><div class="total-number" id="total">RM3,625</div><p id="equation">RM1,250 + RM2,375 = RM3,625</p><p id="limitNote" class="small">Great exploring! The total is within RM10,000.</p></div>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>🧠 Think about it</h3><ol class="list"><li>Increase the first amount by RM500. What happens to the total?</li><li>Keep the first amount fixed and reduce the second amount by RM500. What changes?</li><li>Can you make a total of exactly RM5,000?</li></ol></div>
+      <div class="card"><h3>📝 Record your findings</h3><p>Try three different calculations. Write each pair of amounts and its total in your notebook.</p><button class="btn secondary" id="resetLab">Reset example</button></div>
+    </div>
+    <div class="notice"><strong>Assignment note:</strong> This page contains a working interactive slider model. If your lecturer specifically requires GeoGebra as the dynamic mathematics tool, also create a matching GeoGebra applet and link or embed it here.</div>
+    <div class="button-row"><button class="btn yellow" data-go="shop">Next: Shop & Solve! →</button></div>
+  </section>
+
+  <section class="page" id="shop">
+    <div class="hero"><span class="eyebrow">Station 03 · Apply</span><h1>🛍️ Shop & Solve!</h1><p class="lead">Your teacher is setting up a mathematics corner. Choose school supplies and calculate the total cost of your shopping basket.</p></div>
+    <div class="section-heading"><div><h2>Miss Maths' mini-market</h2><p>Choose up to four items. Prices are fictional classroom examples for practising addition.</p></div></div>
+    <div class="shop-grid">
+      <div class="product"><div class="emoji">📚</div><h3>Storybooks</h3><div class="price">RM1,250</div><label><input type="checkbox" class="product-check" data-price="1250" data-name="Storybooks"> Add item</label></div>
+      <div class="product"><div class="emoji">🧮</div><h3>Calculators</h3><div class="price">RM2,375</div><label><input type="checkbox" class="product-check" data-price="2375" data-name="Calculators"> Add item</label></div>
+      <div class="product"><div class="emoji">✏️</div><h3>Stationery sets</h3><div class="price">RM875</div><label><input type="checkbox" class="product-check" data-price="875" data-name="Stationery sets"> Add item</label></div>
+      <div class="product"><div class="emoji">🎨</div><h3>Art supplies</h3><div class="price">RM1,450</div><label><input type="checkbox" class="product-check" data-price="1450" data-name="Art supplies"> Add item</label></div>
+    </div>
+    <div class="total-box"><div class="tag">Your shopping basket</div><div id="basketItems">No items selected yet.</div><div class="total-number" id="basketTotal">RM0</div><p id="basketMessage">Select items above to calculate the total.</p></div>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>🎯 Mission 1</h3><p>Select Storybooks and Calculators. What is the total?</p><details><summary><strong>Show answer</strong></summary><p>RM1,250 + RM2,375 = <strong>RM3,625</strong>.</p></details></div>
+      <div class="card"><h3>🎯 Mission 2</h3><p>Select Stationery sets and Art supplies. What is the total?</p><details><summary><strong>Show answer</strong></summary><p>RM875 + RM1,450 = <strong>RM2,325</strong>.</p></details></div>
+    </div>
+    <div class="notice">Challenge: Choose three categories, record your number sentence, and explain how you checked your answer.</div>
+    <div class="button-row"><button class="btn secondary" data-go="quiz">Next: Quiz Quest! →</button></div>
+  </section>
+
+  <section class="page" id="quiz">
+    <div class="hero"><span class="eyebrow">Station 04 · Check your learning</span><h1>🏆 Quiz Quest!</h1><p class="lead">Ten questions, one Money Master! Select an answer for each question, then check your score. Aim for at least 8 out of 10.</p></div>
+    <form id="quizForm">
+      <fieldset class="quiz-q"><legend>1. RM1,250 + RM2,375 = ?</legend><label class="option"><input type="radio" name="q1" value="a"> RM3,525</label><label class="option"><input type="radio" name="q1" value="b"> RM3,625</label><label class="option"><input type="radio" name="q1" value="c"> RM3,725</label><div class="feedback" id="f1"></div></fieldset>
+      <fieldset class="quiz-q"><legend>2. RM2,430 + RM1,560 = ?</legend><label class="option"><input type="radio" name="q2" value="a"> RM3,990</label><label class="option"><input type="radio" name="q2" value="b"> RM3,890</label><label class="option"><input type="radio" name="q2" value="c"> RM4,090</label><div class="feedback" id="f2"></div></fieldset>
+      <fieldset class="quiz-q"><legend>3. RM3,250 + RM2,400 = ?</legend><label class="option"><input type="radio" name="q3" value="a"> RM5,550</label><label class="option"><input type="radio" name="q3" value="b"> RM5,650</label><label class="option"><input type="radio" name="q3" value="c"> RM5,750</label><div class="feedback" id="f3"></div></fieldset>
+      <fieldset class="quiz-q"><legend>4. RM4,125 + RM875 = ?</legend><label class="option"><input type="radio" name="q4" value="a"> RM4,900</label><label class="option"><input type="radio" name="q4" value="b"> RM5,000</label><label class="option"><input type="radio" name="q4" value="c"> RM5,100</label><div class="feedback" id="f4"></div></fieldset>
+      <fieldset class="quiz-q"><legend>5. RM1,999 + RM2,001 = ?</legend><label class="option"><input type="radio" name="q5" value="a"> RM3,900</label><label class="option"><input type="radio" name="q5" value="b"> RM4,100</label><label class="option"><input type="radio" name="q5" value="c"> RM4,000</label><div class="feedback" id="f5"></div></fieldset>
+      <fieldset class="quiz-q"><legend>6. RM1,250 + RM875 = ?</legend><label class="option"><input type="radio" name="q6" value="a"> RM2,125</label><label class="option"><input type="radio" name="q6" value="b"> RM2,225</label><label class="option"><input type="radio" name="q6" value="c"> RM2,325</label><div class="feedback" id="f6"></div></fieldset>
+      <fieldset class="quiz-q"><legend>7. A school buys items for RM2,350 and RM1,450. What is the total?</legend><label class="option"><input type="radio" name="q7" value="a"> RM3,700</label><label class="option"><input type="radio" name="q7" value="b"> RM3,800</label><label class="option"><input type="radio" name="q7" value="c"> RM3,900</label><div class="feedback" id="f7"></div></fieldset>
+      <fieldset class="quiz-q"><legend>8. RM2,450 + RM3,275 = ?</legend><label class="option"><input type="radio" name="q8" value="a"> RM5,625</label><label class="option"><input type="radio" name="q8" value="b"> RM5,725</label><label class="option"><input type="radio" name="q8" value="c"> RM5,825</label><div class="feedback" id="f8"></div></fieldset>
+      <fieldset class="quiz-q"><legend>9. RM1,250 + RM2,375 + RM875 = ?</legend><label class="option"><input type="radio" name="q9" value="a"> RM4,400</label><label class="option"><input type="radio" name="q9" value="b"> RM4,500</label><label class="option"><input type="radio" name="q9" value="c"> RM4,600</label><div class="feedback" id="f9"></div></fieldset>
+      <fieldset class="quiz-q"><legend>10. A school spends RM2,450, RM3,275 and RM1,500. What is the total?</legend><label class="option"><input type="radio" name="q10" value="a"> RM7,125</label><label class="option"><input type="radio" name="q10" value="b"> RM7,225</label><label class="option"><input type="radio" name="q10" value="c"> RM7,325</label><div class="feedback" id="f10"></div></fieldset>
+      <div class="button-row"><button class="btn" type="submit">Check my answers ✨</button><button class="btn secondary" type="reset" id="resetQuiz">Try again</button></div>
+    </form>
+    <div class="total-box" id="quizResult" aria-live="polite"><div class="tag">Your result</div><div class="total-number">?</div><p>Answer all ten questions, then click “Check my answers”.</p></div>
+  </section>
+</main>
+<footer><strong>🎀 Math Adventure: Money Matters</strong><br>Year 3 Mathematics · Learn • Explore • Apply • Assess<br><span>Designed as a classroom learning prototype. Check all content and links before submission.</span></footer>
+<script>
+const pages=[...document.querySelectorAll('.page')];
+function showPage(id){
+  if(!document.getElementById(id)) return;
+  pages.forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+const moneyFmt=n=>'RM'+Number(n).toLocaleString('en-MY');
+const a=document.getElementById('amountA'), b=document.getElementById('amountB');
+function updateLab(){
+ const av=Number(a.value),bv=Number(b.value),sum=av+bv;
+ document.getElementById('labelA').textContent=moneyFmt(av);
+ document.getElementById('labelB').textContent=moneyFmt(bv);
+ document.getElementById('total').textContent=moneyFmt(sum);
+ document.getElementById('equation').textContent=moneyFmt(av)+' + '+moneyFmt(bv)+' = '+moneyFmt(sum);
+ document.getElementById('limitNote').textContent=sum<=10000?'Great exploring! The total is within RM10,000.':'The total is above RM10,000. Try lowering one or both amounts.';
+}
+a.addEventListener('input',updateLab);b.addEventListener('input',updateLab);
+document.getElementById('resetLab').addEventListener('click',()=>{a.value=1250;b.value=2375;updateLab()});
+function updateBasket(){
+ const selected=[...document.querySelectorAll('.product-check:checked')];
+ const sum=selected.reduce((acc,el)=>acc+Number(el.dataset.price),0);
+ document.getElementById('basketItems').textContent=selected.length?selected.map(el=>el.dataset.name).join(' + '):'No items selected yet.';
+ document.getElementById('basketTotal').textContent=moneyFmt(sum);
+ document.getElementById('basketMessage').textContent=selected.length?selected.length+' item(s) selected. Write the matching addition sentence in your notebook.':'Select items above to calculate the total.';
+}
+document.querySelectorAll('.product-check').forEach(el=>el.addEventListener('change',updateBasket));
+const answers={q1:'b',q2:'a',q3:'b',q4:'b',q5:'c',q6:'a',q7:'b',q8:'b',q9:'b',q10:'b'};
+const explanations={q1:'RM1,250 + RM2,375 = RM3,625.',q2:'RM2,430 + RM1,560 = RM3,990.',q3:'RM3,250 + RM2,400 = RM5,650.',q4:'RM4,125 + RM875 = RM5,000.',q5:'RM1,999 + RM2,001 = RM4,000.',q6:'RM1,250 + RM875 = RM2,125.',q7:'RM2,350 + RM1,450 = RM3,800.',q8:'RM2,450 + RM3,275 = RM5,725.',q9:'RM1,250 + RM2,375 + RM875 = RM4,500.',q10:'RM2,450 + RM3,275 + RM1,500 = RM7,225.'};
+document.getElementById('quizForm').addEventListener('submit',e=>{
+ e.preventDefault();let score=0;
+ Object.keys(answers).forEach((q,i)=>{
+  const chosen=document.querySelector('input[name="'+q+'"]:checked');
+  const fb=document.getElementById('f'+(i+1));
+  if(chosen&&chosen.value===answers[q]){score++;fb.textContent='Correct! '+explanations[q];fb.style.color='#176b53';}
+  else{fb.textContent='Review: '+explanations[q];fb.style.color='#b83270';}
+ });
+ const result=document.getElementById('quizResult');
+ result.querySelector('.total-number').textContent=score+'/10';
+ result.querySelector('p').textContent=score>=8?'Amazing! You have reached the 8/10 target. Keep practising!':'Good effort! Review the feedback, revisit Learn It!, and try again.';
+ result.scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('resetQuiz').addEventListener('click',()=>{
+ setTimeout(()=>{
+  document.querySelectorAll('.feedback').forEach(f=>f.textContent='');
+  const result=document.getElementById('quizResult');
+  result.querySelector('.total-number').textContent='?';
+  result.querySelector('p').textContent='Answer all ten questions, then click “Check my answers”.';
+ },0);
+});
+</script>
+</body>
+</html>
