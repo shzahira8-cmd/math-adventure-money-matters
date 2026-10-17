@@ -14,7 +14,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:linear-gradient(135deg,#fff8fc,#f7f2ff 55%,#f3fff9);color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif;line-height:1.55}
 button,input{font:inherit}
-button,a{ -webkit-tap-highlight-color:transparent}
+button,a{-webkit-tap-highlight-color:transparent}
 a{color:var(--pink-dark)}
 .site-header{position:sticky;top:0;z-index:20;background:rgba(255,250,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid #f1ddec}
 .header-inner{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -142,8 +142,7 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
     <div class="notice">Teacher note: These are illustrative learning examples. Adapt the lesson to your pupils' prior knowledge and the exact curriculum requirements.</div>
     <div class="button-row"><button class="btn mint" data-go="explore">Next: Explore It! →</button></div>
   </section>
-
-  <section class="page" id="explore">
+    <section class="page" id="explore">
     <div class="hero"><span class="eyebrow">Station 02 · Investigate</span><h1>🔍 Explore It!</h1><p class="lead">Welcome to the Money Lab! Move the sliders to change two money values. The total updates as you explore.</p></div>
     <div class="section-heading"><div><h2>Interactive Money Lab</h2><p>Try changing one amount while keeping the other amount the same.</p></div></div>
     <div class="lab-controls">
@@ -155,67 +154,94 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
       <div class="card"><h3>🧠 Think about it</h3><ol class="list"><li>Increase the first amount by RM500. What happens to the total?</li><li>Keep the first amount fixed and reduce the second amount by RM500. What changes?</li><li>Can you make a total of exactly RM5,000?</li></ol></div>
       <div class="card"><h3>📝 Record your findings</h3><p>Try three different calculations. Write each pair of amounts and its total in your notebook.</p><button class="btn secondary" id="resetLab">Reset example</button></div>
     </div>
-    <div class="notice"><strong>Assignment note:</strong> This page contains a working interactive slider model. If your lecturer specifically requires GeoGebra as the dynamic mathematics tool, also create a matching GeoGebra applet and link or embed it here.</div>
-    <div class="button-row"><button class="btn yellow" data-go="shop">Next: Shop & Solve! →</button></div>
+
+    <div class="section-heading"><div><h2>🎀 Money Explorer: Treasure Hunt!</h2><p>Complete three challenges to unlock your Money Master badge.</p></div></div>
+    <div class="card" style="background:linear-gradient(135deg,#ffe0ed,#eee5ff,#d8f8e9);">
+      <div style="text-align:center;font-size:2.6rem">👑💎🎁</div>
+      <h2 style="text-align:center">The RM10,000 Treasure Hunt</h2>
+      <p style="text-align:center">The Money Princess needs your help! Solve each addition challenge to unlock her treasure.</p>
+      <div class="example"><span class="tag">⭐ Challenge 1 · The Shopping Bag</span><h3>How much did the princess spend?</h3><p>💗 Handbag: RM1,250<br>💜 Shoes: RM2,375</p><p><strong>What is the total cost?</strong></p>
+        <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3625')">RM3,625</button> <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3525')">RM3,525</button> <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3725')">RM3,725</button><p id="missionFeedback1" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="example"><span class="tag">🌈 Challenge 2 · Unlock the Treasure</span><h3>Which amount completes RM10,000?</h3><p>RM6,250 + RM_____ = RM10,000</p>
+        <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3750')">RM3,750</button> <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3250')">RM3,250</button> <button class="btn mint" type="button" onclick="checkMoneyMission(2,'4250')">RM4,250</button><p id="missionFeedback2" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="example"><span class="tag">🧠 Challenge 3 · The Final Key</span><h3>The princess buys three gifts.</h3><p>🎁 Gift A: RM2,450<br>🎁 Gift B: RM3,275<br>🎁 Gift C: RM1,500</p><p><strong>What is the total cost?</strong></p>
+        <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7125')">RM7,125</button> <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7225')">RM7,225</button> <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7325')">RM7,325</button><p id="missionFeedback3" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="total-box" style="margin-top:18px"><div class="tag">YOUR TREASURE SCORE</div><div class="total-number" id="missionScore">0/3</div><p id="missionResult" aria-live="polite">Complete all three challenges to collect your badge!</p><button class="btn" type="button" onclick="resetMoneyMission()">🔄 Play Again</button></div>
+    </div>
+
+    <!-- ORIGINAL GEOGEBRA MISSION: PRESERVED -->
+    <div class="section-heading"><div><h2>🌈 GeoGebra Money Playground</h2><p>Explore, experiment and discover how changing amounts affects a total.</p></div></div>
+    <div class="card" style="background:linear-gradient(135deg,#ffe0ed,#eee5ff,#d8f8e9)">
+      <span class="tag">PLAY · EXPLORE · DISCOVER</span>
+      <h3>🚀 Mission 4: Explore with GeoGebra</h3>
+      <p>Open GeoGebra, represent two money amounts, add them together, and experiment with different values.</p>
+      <div class="example">
+        <h3>🎯 Your GeoGebra mission</h3>
+        <p>
+          1. Predict the answer to RM1,250 + RM2,375.<br>
+          2. Open GeoGebra and explore the calculation.<br>
+          3. Change one amount and observe the total.<br>
+          4. Find two different pairs that make RM10,000.<br>
+          5. Record your calculations and explain the pattern.
+        </p>
+        <p><strong>Sample solution:</strong> RM6,250 + RM3,750 = RM10,000.</p>
+      </div>
+      <a class="btn" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener noreferrer">🚀 Open GeoGebra Calculator</a>
+      <p class="small" style="margin-top:12px">GeoGebra opens in a new tab so pupils can explore the calculator. A specific GeoGebra applet can be embedded here later using its applet's Share/Embed code.</p>
+    </div>
+
+    <!-- NEW GUIDED EXPLANATION: ADDED BELOW ORIGINAL -->
+    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#fff8fc,#f3edff,#effff8)">
+      <span class="tag">EXTRA HELP · STEP BY STEP</span>
+      <h3>💗 Guided GeoGebra Mission: Let’s solve it together!</h3>
+      <p>Keep the original mission above as your task. Use these steps if you need help completing it. Open GeoGebra using the pink button above, then type calculations without commas (for example, <code>1250 + 2375</code>) and press Enter.</p>
+      <details open>
+        <summary><strong>Step 1 · Open GeoGebra</strong></summary>
+        <p>Click <strong>Open GeoGebra Calculator</strong> above. In the new tab, find the input bar where you can type calculations.</p>
+      </details>
+      <details>
+        <summary><strong>Step 2 · Predict and calculate</strong></summary>
+        <p>Estimate RM1,250 + RM2,375 first. A reasonable estimate is about RM3,600. Then enter <code>1250 + 2375</code>.</p>
+        <p><strong>Answer:</strong> 3,625. So RM1,250 + RM2,375 = <strong>RM3,625</strong>.</p>
+      </details>
+      <details>
+        <summary><strong>Step 3 · Try different calculations</strong></summary>
+        <ul>
+          <li><code>1250 + 2375</code> = <strong>3,625</strong></li>
+          <li><code>2000 + 3000</code> = <strong>5,000</strong></li>
+          <li><code>4500 + 2500</code> = <strong>7,000</strong></li>
+          <li><code>6250 + 3750</code> = <strong>10,000</strong></li>
+        </ul>
+        <p>Notice that the total changes when either amount changes.</p>
+      </details>
+      <details>
+        <summary><strong>Step 4 · Change one amount</strong></summary>
+        <p>Start with <code>1250 + 2375</code> = <strong>3,625</strong>. Change the first amount to <code>2250 + 2375</code> = <strong>4,625</strong>.</p>
+        <p><strong>Observation:</strong> The first amount increased by RM1,000, so the total also increased by RM1,000 while the second amount stayed the same.</p>
+      </details>
+      <details>
+        <summary><strong>Step 5 · Find two pairs that make RM10,000</strong></summary>
+        <ul>
+          <li><code>6250 + 3750</code> = <strong>10,000</strong></li>
+          <li><code>4000 + 6000</code> = <strong>10,000</strong></li>
+        </ul>
+        <p>Both pairs have different amounts but the same total.</p>
+      </details>
+      <details>
+        <summary><strong>Step 6 · Sample answers for your notes</strong></summary>
+        <p><strong>Prediction:</strong> Approximately RM3,600.</p>
+        <p><strong>Calculation:</strong> RM1,250 + RM2,375 = RM3,625.</p>
+        <p><strong>Changing one amount:</strong> When RM1,250 becomes RM2,250, the total increases from RM3,625 to RM4,625.</p>
+        <p><strong>Two pairs totalling RM10,000:</strong> RM6,250 + RM3,750 = RM10,000 and RM4,000 + RM6,000 = RM10,000.</p>
+        <p><strong>Pattern:</strong> If one amount increases by RM1,000 and the other stays the same, the total also increases by RM1,000. Different pairs can make the same total.</p>
+      </details>
+      <p class="small">📸 Assignment tip: If your lecturer allows screenshots, capture GeoGebra showing one or more calculations as evidence of your exploration.</p>
+    </div>
+    <div class="button-row"><button class="btn yellow" data-go="shop">Next: Shop &amp; Solve! →</button></div>
   </section>
-
-<!-- GEOGEBRA PLAYFUL EXPLORATION -->
-<div class="section-heading">
-  <div>
-    <h2>🎀 GeoGebra Money Playground</h2>
-    <p>Explore, experiment and become a Money Explorer!</p>
-  </div>
-</div>
-
-<div class="card" style="background:linear-gradient(135deg,#ffe0ed,#eee5ff,#d8f8e9);">
-  <span class="tag">PLAY • EXPLORE • DISCOVER</span>
-  <h3>🌈 Mission 1: Become a Money Explorer!</h3>
-  <p>
-    Open GeoGebra and explore mathematical models.
-    Try representing two money amounts, adding them,
-    and investigating how the total changes.
-  </p>
-
-  <div class="example">
-    <div class="tag">Your first challenge</div>
-    <div class="mathline">RM1,250 + RM2,375 = ?</div>
-    <p>
-      1. Predict the total before calculating.<br>
-      2. Use GeoGebra to explore your calculation.<br>
-      3. Change one amount and observe what happens.<br>
-      4. Record three different sums in your notebook.
-    </p>
-  </div>
-
-  <a class="btn"
-     href="https://www.geogebra.org/calculator"
-     target="_blank"
-     rel="noopener noreferrer">
-    🚀 Open GeoGebra
-  </a>
-</div>
-
-<div class="card" style="margin-top:16px;">
-  <h3>💜 Mission 2: Beat the RM10,000 Target!</h3>
-  <p>
-    Choose two money amounts. Can you make their total
-    exactly RM10,000? Try another pair of amounts and
-    explain why both calculations work.
-  </p>
-
-  <details>
-    <summary><strong>✨ Reveal a sample solution</strong></summary>
-    <p>RM6,250 + RM3,750 = RM10,000.</p>
-  </details>
-
-  <details>
-    <summary><strong>🧠 Reflection time</strong></summary>
-    <p>
-      What happens to the total when one amount increases
-      while the other stays the same?
-    </p>
-  </details>
-</div>
 
   <section class="page" id="shop">
     <div class="hero"><span class="eyebrow">Station 03 · Apply</span><h1>🛍️ Shop & Solve!</h1><p class="lead">Your teacher is setting up a mathematics corner. Choose school supplies and calculate the total cost of your shopping basket.</p></div>
@@ -234,8 +260,7 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
     <div class="notice">Challenge: Choose three categories, record your number sentence, and explain how you checked your answer.</div>
     <div class="button-row"><button class="btn secondary" data-go="quiz">Next: Quiz Quest! →</button></div>
   </section>
-
-  <section class="page" id="quiz">
+    <section class="page" id="quiz">
     <div class="hero"><span class="eyebrow">Station 04 · Check your learning</span><h1>🏆 Quiz Quest!</h1><p class="lead">Ten questions, one Money Master! Select an answer for each question, then check your score. Aim for at least 8 out of 10.</p></div>
     <form id="quizForm">
       <fieldset class="quiz-q"><legend>1. RM1,250 + RM2,375 = ?</legend><label class="option"><input type="radio" name="q1" value="a"> RM3,525</label><label class="option"><input type="radio" name="q1" value="b"> RM3,625</label><label class="option"><input type="radio" name="q1" value="c"> RM3,725</label><div class="feedback" id="f1"></div></fieldset>
@@ -251,42 +276,36 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
       <div class="button-row"><button class="btn" type="submit">Check my answers ✨</button><button class="btn secondary" type="reset" id="resetQuiz">Try again</button></div>
     </form>
     <div class="total-box" id="quizResult" aria-live="polite"><div class="tag">Your result</div><div class="total-number">?</div><p>Answer all ten questions, then click “Check my answers”.</p></div>
-    
-<!-- EXTRA WAYGROUND PRACTICE -->
-<div class="card" style="margin: 20px 0; background: linear-gradient(125deg, #ffe0ed, #eee5ff, #d8f8e9);">
-  <span class="tag">BONUS PRACTICE</span>
-  <h2>💗 Extra Practice: Wayground!</h2>
-  <p>
-    Ready for another challenge, Money Master?
-    Practise adding money values with our extra
-    interactive quiz on Wayground!
-  </p>
-  <p><strong>Game code: 06071805</strong></p>
-  <a
-    class="btn"
-    href="https://wayground.com/join?gc=06071805"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    🎮 Start Extra Practice
-  </a>
-</div>
 
+    <!-- EXTRA WAYGROUND PRACTICE -->
+    <div class="card" style="margin:20px 0;background:linear-gradient(125deg,#ffe0ed,#eee5ff,#d8f8e9)">
+      <span class="tag">BONUS PRACTICE</span>
+      <h2>💗 Extra Practice: Wayground!</h2>
+      <p>Ready for another challenge, Money Master? Practise adding money values with our extra interactive quiz on Wayground!</p>
+      <p><strong>Game code: 06071805</strong></p>
+      <a class="btn" href="https://wayground.com/join?gc=06071805" target="_blank" rel="noopener noreferrer">🎮 Start Extra Practice</a>
+    </div>
   </section>
 </main>
 <footer><strong>🎀 Math Adventure: Money Matters</strong><br>Year 3 Mathematics · Learn • Explore • Apply • Assess<br><span>Designed as a classroom learning prototype. Check all content and links before submission.</span></footer>
+
 <script>
 const pages=[...document.querySelectorAll('.page')];
+
 function showPage(id){
   if(!document.getElementById(id)) return;
   pages.forEach(p=>p.classList.toggle('active',p.id===id));
   document.querySelectorAll('nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+
 const moneyFmt=n=>'RM'+Number(n).toLocaleString('en-MY');
-const a=document.getElementById('amountA'), b=document.getElementById('amountB');
+const a=document.getElementById('amountA');
+const b=document.getElementById('amountB');
+
 function updateLab(){
  const av=Number(a.value),bv=Number(b.value),sum=av+bv;
  document.getElementById('labelA').textContent=moneyFmt(av);
@@ -295,8 +314,16 @@ function updateLab(){
  document.getElementById('equation').textContent=moneyFmt(av)+' + '+moneyFmt(bv)+' = '+moneyFmt(sum);
  document.getElementById('limitNote').textContent=sum<=10000?'Great exploring! The total is within RM10,000.':'The total is above RM10,000. Try lowering one or both amounts.';
 }
-a.addEventListener('input',updateLab);b.addEventListener('input',updateLab);
-document.getElementById('resetLab').addEventListener('click',()=>{a.value=1250;b.value=2375;updateLab()});
+
+a.addEventListener('input',updateLab);
+b.addEventListener('input',updateLab);
+
+document.getElementById('resetLab').addEventListener('click',()=>{
+  a.value=1250;
+  b.value=2375;
+  updateLab();
+});
+
 function updateBasket(){
  const selected=[...document.querySelectorAll('.product-check:checked')];
  const sum=selected.reduce((acc,el)=>acc+Number(el.dataset.price),0);
@@ -304,22 +331,44 @@ function updateBasket(){
  document.getElementById('basketTotal').textContent=moneyFmt(sum);
  document.getElementById('basketMessage').textContent=selected.length?selected.length+' item(s) selected. Write the matching addition sentence in your notebook.':'Select items above to calculate the total.';
 }
+
 document.querySelectorAll('.product-check').forEach(el=>el.addEventListener('change',updateBasket));
+
 const answers={q1:'b',q2:'a',q3:'b',q4:'b',q5:'c',q6:'a',q7:'b',q8:'b',q9:'b',q10:'b'};
-const explanations={q1:'RM1,250 + RM2,375 = RM3,625.',q2:'RM2,430 + RM1,560 = RM3,990.',q3:'RM3,250 + RM2,400 = RM5,650.',q4:'RM4,125 + RM875 = RM5,000.',q5:'RM1,999 + RM2,001 = RM4,000.',q6:'RM1,250 + RM875 = RM2,125.',q7:'RM2,350 + RM1,450 = RM3,800.',q8:'RM2,450 + RM3,275 = RM5,725.',q9:'RM1,250 + RM2,375 + RM875 = RM4,500.',q10:'RM2,450 + RM3,275 + RM1,500 = RM7,225.'};
+const explanations={
+ q1:'RM1,250 + RM2,375 = RM3,625.',
+ q2:'RM2,430 + RM1,560 = RM3,990.',
+ q3:'RM3,250 + RM2,400 = RM5,650.',
+ q4:'RM4,125 + RM875 = RM5,000.',
+ q5:'RM1,999 + RM2,001 = RM4,000.',
+ q6:'RM1,250 + RM875 = RM2,125.',
+ q7:'RM2,350 + RM1,450 = RM3,800.',
+ q8:'RM2,450 + RM3,275 = RM5,725.',
+ q9:'RM1,250 + RM2,375 + RM875 = RM4,500.',
+ q10:'RM2,450 + RM3,275 + RM1,500 = RM7,225.'
+};
+
 document.getElementById('quizForm').addEventListener('submit',e=>{
- e.preventDefault();let score=0;
+ e.preventDefault();
+ let score=0;
  Object.keys(answers).forEach((q,i)=>{
   const chosen=document.querySelector('input[name="'+q+'"]:checked');
   const fb=document.getElementById('f'+(i+1));
-  if(chosen&&chosen.value===answers[q]){score++;fb.textContent='Correct! '+explanations[q];fb.style.color='#176b53';}
-  else{fb.textContent='Review: '+explanations[q];fb.style.color='#b83270';}
+  if(chosen&&chosen.value===answers[q]){
+   score++;
+   fb.textContent='Correct! '+explanations[q];
+   fb.style.color='#176b53';
+  }else{
+   fb.textContent='Review: '+explanations[q];
+   fb.style.color='#b83270';
+  }
  });
  const result=document.getElementById('quizResult');
  result.querySelector('.total-number').textContent=score+'/10';
  result.querySelector('p').textContent=score>=8?'Amazing! You have reached the 8/10 target. Keep practising!':'Good effort! Review the feedback, revisit Learn It!, and try again.';
  result.scrollIntoView({behavior:'smooth',block:'center'});
 });
+
 document.getElementById('resetQuiz').addEventListener('click',()=>{
  setTimeout(()=>{
   document.querySelectorAll('.feedback').forEach(f=>f.textContent='');
@@ -328,6 +377,39 @@ document.getElementById('resetQuiz').addEventListener('click',()=>{
   result.querySelector('p').textContent='Answer all ten questions, then click “Check my answers”.';
  },0);
 });
+
+const moneyMissionAnswers={1:'3625',2:'3750',3:'7225'};
+const moneyMissionCompleted={};
+
+function checkMoneyMission(question,answer){
+ const feedback=document.getElementById('missionFeedback'+question);
+ if(moneyMissionCompleted[question]){
+  feedback.textContent='⭐ Challenge already completed!';
+  return;
+ }
+ if(answer===moneyMissionAnswers[question]){
+  moneyMissionCompleted[question]=true;
+  feedback.textContent='🎉 Correct! You earned a treasure star!';
+  feedback.style.color='#176b53';
+ }else{
+  feedback.textContent='💗 Not quite! Check the amounts and try again.';
+  feedback.style.color='#b83270';
+ }
+ const score=Object.keys(moneyMissionCompleted).length;
+ document.getElementById('missionScore').textContent=score+'/3';
+ document.getElementById('missionResult').textContent=score===3?'👑 Congratulations, Money Master! You unlocked the treasure! 💎':'Keep going! Collect all 3 treasure stars.';
+}
+
+function resetMoneyMission(){
+ for(let i=1;i<=3;i++){
+  delete moneyMissionCompleted[i];
+  const f=document.getElementById('missionFeedback'+i);
+  f.textContent='';
+  f.style.color='';
+ }
+ document.getElementById('missionScore').textContent='0/3';
+ document.getElementById('missionResult').textContent='Complete all three challenges to collect your badge!';
+}
 </script>
 </body>
 </html>
