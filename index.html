@@ -260,6 +260,341 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
     <div class="notice">Challenge: Choose three categories, record your number sentence, and explain how you checked your answer.</div>
     <div class="button-row"><button class="btn secondary" data-go="quiz">Next: Quiz Quest! →</button></div>
   </section>
+  
+<div id="miniMarket">
+<style>
+#miniMarket {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #633b58;
+  background: #fff9fc;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+#miniMarket * { box-sizing: border-box; }
+#miniMarket h2 { color: #e84393; text-align: center; }
+#miniMarket .intro { text-align: center; line-height: 1.6; }
+#miniMarket .market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(125px,1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+#miniMarket .product {
+  background: white;
+  border: 2px solid #f6c5df;
+  border-radius: 16px;
+  padding: 14px 8px;
+  text-align: center;
+}
+#miniMarket .emoji { font-size: 38px; }
+#miniMarket .price { color: #df398d; font-weight: bold; margin: 8px; }
+#miniMarket button {
+  background: #ed78b5;
+  color: white;
+  border: 0;
+  padding: 10px 13px;
+  margin: 4px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+#miniMarket button:hover { background: #d94c99; }
+#miniMarket button:focus-visible {
+  outline: 3px solid #633b58;
+  outline-offset: 3px;
+}
+#miniMarket .secondary { background: #9b82d6; }
+#miniMarket .panel {
+  background: white;
+  border: 2px solid #e6d6ff;
+  padding: 16px;
+  border-radius: 16px;
+  margin-top: 14px;
+}
+#miniMarket .money-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+#miniMarket .money-buttons button { background: #69b99a; }
+#miniMarket .money-buttons button.selected {
+  background: #347b62;
+  outline: 3px solid #b7ead5;
+}
+#miniMarket .total {
+  font-size: 23px;
+  font-weight: bold;
+  color: #e84393;
+}
+#miniMarket .feedback {
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 12px;
+  background: #fff0f7;
+  line-height: 1.6;
+}
+#miniMarket .progress { text-align: center; font-weight: bold; }
+#miniMarket .small { font-size: 13px; line-height: 1.6; }
+@media(max-width:400px) {
+  #miniMarket { padding: 12px; }
+  #miniMarket .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+</style>
+
+<h2>🛒 Mini Market Adventure!</h2>
+<p class="intro">
+  <b>Money Matters: Let's Add & Give Change!</b><br>
+  Mathematics Year 3 | Malaysian Ringgit (RM)<br>
+  Choose your items, pay the cashier and calculate your change!
+</p>
+
+<div class="panel">
+  <b>🌟 How to Play</b>
+  <ol>
+    <li>Choose the items you want to buy.</li>
+    <li>Check the total price of your items.</li>
+    <li>Select the money you want to pay with.</li>
+    <li>Calculate the change you should receive.</li>
+    <li>Click “Check My Answer” to see your result.</li>
+  </ol>
+</div>
+
+<div class="market-grid" id="products"></div>
+
+<div class="panel">
+  <h3>🧺 Your Shopping Basket</h3>
+  <div id="basket">You have not selected any items yet.</div>
+  <p>Total price: <span class="total" id="total">RM0.00</span></p>
+  <button onclick="MM.clearBasket()" class="secondary">Clear Basket</button>
+</div>
+
+<div class="panel">
+  <h3>💵 Choose Your Payment</h3>
+  <p class="small">Select one banknote or coin to pay for your shopping.</p>
+  <div class="money-buttons" id="moneyButtons"></div>
+  <p>Money paid: <b id="paid">Not selected</b></p>
+  <p>Change to receive: <b id="change">—</b></p>
+</div>
+
+<div class="panel">
+  <h3>🧠 Your Challenge</h3>
+  <p id="question">Choose items to begin your shopping challenge!</p>
+  <label for="answer"><b>My answer (RM):</b></label>
+  <input id="answer" type="number" min="0" step="0.01"
+    placeholder="e.g. 2.50"
+    style="width:100%;padding:12px;margin-top:8px;border:2px solid #edc5df;border-radius:10px;font-size:16px;">
+  <button onclick="MM.checkAnswer()">Check My Answer ✨</button>
+  <button onclick="MM.newChallenge()" class="secondary">New Challenge 🎲</button>
+  <div class="feedback" id="feedback" aria-live="polite">
+    Your feedback will appear here.
+  </div>
+  <p class="progress">⭐ Challenges completed: <span id="score">0</span></p>
+</div>
+
+<div class="panel">
+  <h3>📚 Let's Reflect!</h3>
+  <p>1. Why should we check our change after shopping?</p>
+  <p>2. What happens if we pay more than the price?</p>
+  <p>3. How can addition and subtraction help us at a mini market?</p>
+  <label for="reflection"><b>My reflection:</b></label>
+  <textarea id="reflection" rows="3"
+    placeholder="I learned that..."
+    style="width:100%;padding:10px;margin-top:8px;border:2px solid #edc5df;border-radius:10px;font:inherit;"></textarea>
+</div>
+
+<script>
+(function () {
+  const root = document.getElementById("miniMarket");
+  if (root.dataset.ready) return;
+  root.dataset.ready = "true";
+
+  const items = [
+    {name:"Apple", emoji:"🍎", price:1.50},
+    {name:"Milk", emoji:"🥛", price:3.20},
+    {name:"Bread", emoji:"🍞", price:2.80},
+    {name:"Juice", emoji:"🧃", price:2.50},
+    {name:"Biscuits", emoji:"🍪", price:1.80},
+    {name:"Pencil", emoji:"✏️", price:1.20},
+    {name:"Notebook", emoji:"📒", price:4.50},
+    {name:"Toy Bear", emoji:"🧸", price:8.00}
+  ];
+
+  const money = [0.10, 0.20, 0.50, 1, 5, 10, 20, 50];
+  const basket = {};
+  let payment = null;
+  let score = 0;
+  let completed = false;
+
+  const fmt = n => "RM" + n.toFixed(2);
+  const total = () => Math.round(items.reduce(
+    (sum, item, i) => sum + item.price * (basket[i] || 0), 0
+  ) * 100) / 100;
+
+  function renderProducts() {
+    document.getElementById("products").innerHTML = items.map((p,i) => `
+      <div class="product">
+        <div class="emoji">${p.emoji}</div>
+        <b>${p.name}</b>
+        <div class="price">${fmt(p.price)}</div>
+        <button data-add="${i}">Add +</button>
+        <div>Quantity: <b id="qty${i}">0</b></div>
+        <button class="secondary" data-remove="${i}">Remove −</button>
+      </div>
+    `).join("");
+
+    root.querySelectorAll("[data-add]").forEach(b => b.onclick = () => {
+      const i = Number(b.dataset.add);
+      basket[i] = (basket[i] || 0) + 1;
+      update();
+    });
+
+    root.querySelectorAll("[data-remove]").forEach(b => b.onclick = () => {
+      const i = Number(b.dataset.remove);
+      if (basket[i]) basket[i]--;
+      if (!basket[i]) delete basket[i];
+      update();
+    });
+  }
+
+  function renderMoney() {
+    document.getElementById("moneyButtons").innerHTML = money.map(n => `
+      <button data-money="${n}" class="${payment === n ? "selected" : ""}">
+        ${fmt(n)}
+      </button>
+    `).join("");
+
+    root.querySelectorAll("[data-money]").forEach(b => b.onclick = () => {
+      payment = Number(b.dataset.money);
+      completed = false;
+      document.getElementById("feedback").textContent =
+        "Now calculate your change and check your answer!";
+      update();
+    });
+  }
+
+  function update() {
+    const chosen = items.map((p,i) => basket[i] ?
+      `<p>${p.emoji} ${p.name} × ${basket[i]} = ${fmt(p.price * basket[i])}</p>` : ""
+    ).join("");
+
+    document.getElementById("basket").innerHTML =
+      chosen || "You have not selected any items yet.";
+
+    items.forEach((p,i) => {
+      document.getElementById("qty" + i).textContent = basket[i] || 0;
+    });
+
+    document.getElementById("total").textContent = fmt(total());
+    document.getElementById("paid").textContent =
+      payment === null ? "Not selected" : fmt(payment);
+
+    const valid = payment !== null && payment >= total() && total() > 0;
+    document.getElementById("change").textContent =
+      valid ? fmt(payment - total()) :
+      payment !== null && payment < total() ?
+      "Not enough money!" : "—";
+
+    renderMoney();
+  }
+
+  function clearBasket() {
+    Object.keys(basket).forEach(k => delete basket[k]);
+    payment = null;
+    completed = false;
+    document.getElementById("answer").value = "";
+    document.getElementById("feedback").textContent = "Basket cleared. Start shopping again!";
+    document.getElementById("question").textContent = "Choose items to begin your shopping challenge!";
+    update();
+  }
+
+  function checkAnswer() {
+    const t = total();
+    if (t <= 0) {
+      document.getElementById("feedback").textContent =
+        "Please add at least one item to your basket first.";
+      return;
+    }
+    if (payment === null) {
+      document.getElementById("feedback").textContent =
+        "Please select your payment first.";
+      return;
+    }
+    if (payment < t) {
+      document.getElementById("feedback").textContent =
+        "Oops! Your payment is not enough. Choose a larger amount of money.";
+      return;
+    }
+
+    const expected = Math.round((payment - t) * 100);
+    const raw = document.getElementById("answer").value.trim();
+    if (raw === "") {
+      document.getElementById("feedback").textContent =
+        "Enter your answer before checking.";
+      return;
+    }
+
+    const entered = Number(raw);
+    if (!Number.isFinite(entered) || entered < 0) {
+      document.getElementById("feedback").textContent =
+        "Please enter a valid amount.";
+      return;
+    }
+
+    const cents = Math.round(entered * 100);
+    const feedback = document.getElementById("feedback");
+
+    if (cents === expected) {
+      if (!completed) {
+        score++;
+        completed = true;
+        document.getElementById("score").textContent = score;
+      }
+      feedback.innerHTML = "🎉 <b>Excellent! Correct answer!</b><br>" +
+        fmt(payment) + " − " + fmt(t) + " = " + fmt(expected / 100) +
+        "<br>You know how to calculate change!";
+    } else {
+      completed = false;
+      feedback.innerHTML = "💗 Not quite! Try again.<br>" +
+        "Hint: Change = Money paid − Total price.<br>" +
+        "Subtract the total price from the money you paid.";
+    }
+  }
+
+  function newChallenge() {
+    clearBasket();
+    let a = Math.floor(Math.random() * items.length);
+    let b = Math.floor(Math.random() * items.length);
+    while (b === a) b = Math.floor(Math.random() * items.length);
+
+    basket[a] = 1 + Math.floor(Math.random() * 2);
+    basket[b] = 1;
+    const t = total();
+    payment = money.find(m => m >= t) || 50;
+
+    document.getElementById("question").textContent =
+      "You buy " + items[a].name + " and " + items[b].name +
+      ". Your total is " + fmt(t) + ". You pay " + fmt(payment) +
+      ". How much change should the cashier give you?";
+
+    document.getElementById("answer").value = "";
+    document.getElementById("feedback").textContent =
+      "Work out the change, then enter your answer!";
+    completed = false;
+    update();
+  }
+
+  window.MM = {clearBasket, checkAnswer, newChallenge};
+  renderProducts();
+  renderMoney();
+  update();
+})();
+</script>
+</div>
+
     <section class="page" id="quiz">
     <div class="hero"><span class="eyebrow">Station 04 · Check your learning</span><h1>🏆 Quiz Quest!</h1><p class="lead">Ten questions, one Money Master! Select an answer for each question, then check your score. Aim for at least 8 out of 10.</p></div>
     <form id="quizForm">
