@@ -241,10 +241,7 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
       <p class="small">📸 Assignment tip: If your lecturer allows screenshots, capture GeoGebra showing one or more calculations as evidence of your exploration.</p>
     </div>
     <div class="button-row"><button class="btn yellow" data-go="shop">Next: Shop &amp; Solve! →</button></div>
-  </section>
-
-  <section class="page" id="shop">
-  
+  </section>  
 <section class="page" id="shop">
   <div class="hero">
     <span class="eyebrow">Station 03 · Apply</span>
@@ -343,9 +340,6 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
     </button>
   </div>
 </section>
-
-</script>
-</div>
 
     <section class="page" id="quiz">
   
@@ -950,3 +944,53 @@ body {
 </style>
 
     <
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pages = document.querySelectorAll(".page");
+  const navButtons = document.querySelectorAll("nav [data-page]");
+  const goButtons = document.querySelectorAll("[data-go]");
+
+  function showPage(pageId) {
+    const target = document.getElementById(pageId);
+
+    if (!target || !target.classList.contains("page")) {
+      return;
+    }
+
+    pages.forEach(function (page) {
+      page.classList.toggle("active", page.id === pageId);
+    });
+
+    navButtons.forEach(function (button) {
+      const isActive = button.dataset.page === pageId;
+      button.classList.toggle("active", isActive);
+
+      if (isActive) {
+        button.setAttribute("aria-current", "page");
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  navButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      showPage(button.dataset.page);
+    });
+  });
+
+  goButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      showPage(button.dataset.go);
+    });
+  });
+
+  // Keep the Home page visible when the website first loads.
+  showPage("home");
+});
+</script>
+</body>
+</html>
