@@ -348,155 +348,605 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
 </div>
 
     <section class="page" id="quiz">
-    <div class="hero"><span class="eyebrow">Station 04 · Check your learning</span><h1>🏆 Quiz Quest!</h1><p class="lead">Ten questions, one Money Master! Select an answer for each question, then check your score. Aim for at least 8 out of 10.</p></div>
-    <form id="quizForm">
-      <fieldset class="quiz-q"><legend>1. RM1,250 + RM2,375 = ?</legend><label class="option"><input type="radio" name="q1" value="a"> RM3,525</label><label class="option"><input type="radio" name="q1" value="b"> RM3,625</label><label class="option"><input type="radio" name="q1" value="c"> RM3,725</label><div class="feedback" id="f1"></div></fieldset>
-      <fieldset class="quiz-q"><legend>2. RM2,430 + RM1,560 = ?</legend><label class="option"><input type="radio" name="q2" value="a"> RM3,990</label><label class="option"><input type="radio" name="q2" value="b"> RM3,890</label><label class="option"><input type="radio" name="q2" value="c"> RM4,090</label><div class="feedback" id="f2"></div></fieldset>
-      <fieldset class="quiz-q"><legend>3. RM3,250 + RM2,400 = ?</legend><label class="option"><input type="radio" name="q3" value="a"> RM5,550</label><label class="option"><input type="radio" name="q3" value="b"> RM5,650</label><label class="option"><input type="radio" name="q3" value="c"> RM5,750</label><div class="feedback" id="f3"></div></fieldset>
-      <fieldset class="quiz-q"><legend>4. RM4,125 + RM875 = ?</legend><label class="option"><input type="radio" name="q4" value="a"> RM4,900</label><label class="option"><input type="radio" name="q4" value="b"> RM5,000</label><label class="option"><input type="radio" name="q4" value="c"> RM5,100</label><div class="feedback" id="f4"></div></fieldset>
-      <fieldset class="quiz-q"><legend>5. RM1,999 + RM2,001 = ?</legend><label class="option"><input type="radio" name="q5" value="a"> RM3,900</label><label class="option"><input type="radio" name="q5" value="b"> RM4,100</label><label class="option"><input type="radio" name="q5" value="c"> RM4,000</label><div class="feedback" id="f5"></div></fieldset>
-      <fieldset class="quiz-q"><legend>6. RM1,250 + RM875 = ?</legend><label class="option"><input type="radio" name="q6" value="a"> RM2,125</label><label class="option"><input type="radio" name="q6" value="b"> RM2,225</label><label class="option"><input type="radio" name="q6" value="c"> RM2,325</label><div class="feedback" id="f6"></div></fieldset>
-      <fieldset class="quiz-q"><legend>7. A school buys items for RM2,350 and RM1,450. What is the total?</legend><label class="option"><input type="radio" name="q7" value="a"> RM3,700</label><label class="option"><input type="radio" name="q7" value="b"> RM3,800</label><label class="option"><input type="radio" name="q7" value="c"> RM3,900</label><div class="feedback" id="f7"></div></fieldset>
-      <fieldset class="quiz-q"><legend>8. RM2,450 + RM3,275 = ?</legend><label class="option"><input type="radio" name="q8" value="a"> RM5,625</label><label class="option"><input type="radio" name="q8" value="b"> RM5,725</label><label class="option"><input type="radio" name="q8" value="c"> RM5,825</label><div class="feedback" id="f8"></div></fieldset>
-      <fieldset class="quiz-q"><legend>9. RM1,250 + RM2,375 + RM875 = ?</legend><label class="option"><input type="radio" name="q9" value="a"> RM4,400</label><label class="option"><input type="radio" name="q9" value="b"> RM4,500</label><label class="option"><input type="radio" name="q9" value="c"> RM4,600</label><div class="feedback" id="f9"></div></fieldset>
-      <fieldset class="quiz-q"><legend>10. A school spends RM2,450, RM3,275 and RM1,500. What is the total?</legend><label class="option"><input type="radio" name="q10" value="a"> RM7,125</label><label class="option"><input type="radio" name="q10" value="b"> RM7,225</label><label class="option"><input type="radio" name="q10" value="c"> RM7,325</label><div class="feedback" id="f10"></div></fieldset>
-      <div class="button-row"><button class="btn" type="submit">Check my answers ✨</button><button class="btn secondary" type="reset" id="resetQuiz">Try again</button></div>
-    </form>
-    <div class="total-box" id="quizResult" aria-live="polite"><div class="tag">Your result</div><div class="total-number">?</div><p>Answer all ten questions, then click “Check my answers”.</p></div>
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Quest | Money Matters</title>
 
-    <!-- EXTRA WAYGROUND PRACTICE -->
-    <div class="card" style="margin:20px 0;background:linear-gradient(125deg,#ffe0ed,#eee5ff,#d8f8e9)">
-      <span class="tag">BONUS PRACTICE</span>
-      <h2>💗 Extra Practice: Wayground!</h2>
-      <p>Ready for another challenge, Money Master? Practise adding money values with our extra interactive quiz on Wayground!</p>
-      <p><strong>Game code: 06071805</strong></p>
-      <a class="btn" href="https://wayground.com/join?gc=06071805" target="_blank" rel="noopener noreferrer">🎮 Start Extra Practice</a>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #583b59;
+  background: #fff8fc;
+}
+
+#quizQuest {
+  max-width: 850px;
+  margin: auto;
+}
+
+.quiz-hero {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffd9e9, #e8ddff, #d7f8e8);
+  border: 2px solid #f5c6df;
+}
+
+.quiz-hero .eyebrow {
+  display: inline-block;
+  padding: 7px 13px;
+  background: white;
+  color: #b83270;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.quiz-hero h1 {
+  color: #b83270;
+  font-size: clamp(27px, 5vw, 42px);
+  margin: 15px 0 10px;
+}
+
+.quiz-hero p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+.quiz-progress {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #f3cde1;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.progress-track {
+  height: 12px;
+  background: #f4e7f3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f4a9ce, #bfa7ff, #a5e7c8);
+  transition: width .3s ease;
+}
+
+.quiz-q {
+  margin: 16px 0;
+  padding: 18px;
+  border: 1px solid #efd3e5;
+  border-radius: 18px;
+  background: white;
+  min-width: 0;
+}
+
+.quiz-q legend {
+  padding: 0 5px;
+  color: #9b3675;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.question-number {
+  display: inline-block;
+  background: #fce0ed;
+  color: #a52e70;
+  padding: 5px 9px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #eadff0;
+  border-radius: 12px;
+  cursor: pointer;
+  line-height: 1.45;
+  transition: background .2s, border-color .2s;
+}
+
+.option:hover {
+  background: #fff2f8;
+  border-color: #e9a9cb;
+}
+
+.option:has(input:checked) {
+  background: #f8eaff;
+  border-color: #bd9ce9;
+}
+
+.option input {
+  accent-color: #c64d91;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.feedback {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.feedback.show {
+  display: block;
+}
+
+.feedback.correct {
+  background: #e5f8ed;
+  color: #176b53;
+}
+
+.feedback.incorrect {
+  background: #fff0f5;
+  color: #a52e55;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.qq-btn {
+  border: none;
+  padding: 13px 20px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #c54d91;
+  color: white;
+  box-shadow: 0 4px 0 #a83c78;
+  transition: transform .15s;
+}
+
+.qq-btn:hover {
+  transform: translateY(-2px);
+}
+
+.qq-btn.secondary {
+  background: #e7dcff;
+  color: #68459c;
+  box-shadow: 0 4px 0 #c7b4ed;
+}
+
+.qq-btn:focus-visible,
+.option:focus-within {
+  outline: 3px solid #8e65cb;
+  outline-offset: 3px;
+}
+
+#quizResult {
+  text-align: center;
+  background: linear-gradient(135deg, #ffe5f0, #eee5ff, #e0f9ed);
+  padding: 24px 18px;
+  border-radius: 20px;
+  border: 2px solid #edc8e1;
+  margin: 22px 0;
+}
+
+#quizResult h2 {
+  color: #a63879;
+  margin: 0 0 10px;
+}
+
+#scoreNumber {
+  font-size: 42px;
+  font-weight: bold;
+  color: #a63879;
+  margin: 10px 0;
+}
+
+#resultMessage {
+  line-height: 1.6;
+}
+
+.bonus-card {
+  margin-top: 25px;
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #ffe0ed, #eee5ff, #d8f8e9);
+  text-align: center;
+}
+
+.bonus-card h2 {
+  color: #a63879;
+}
+
+.bonus-card p {
+  line-height: 1.6;
+}
+
+.bonus-link {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.quiz-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #886b89;
+  margin: 24px 0 5px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .quiz-q {
+    padding: 14px;
+  }
+
+  .qq-btn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="quizQuest">
+
+  <header class="quiz-hero">
+    <span class="eyebrow">STATION 04 · CHECK YOUR LEARNING</span>
+    <h1>🏆 Quiz Quest!</h1>
+    <p>
+      Welcome, Money Master! 💗 Answer all ten questions
+      about adding money. Check your answers and aim for
+      at least 8 out of 10!
+    </p>
+  </header>
+
+  <div class="quiz-progress">
+    <div class="progress-top">
+      <span>💖 Your progress</span>
+      <span id="answeredCount">0 / 10 answered</span>
     </div>
+    <div class="progress-track">
+      <div id="progressFill"></div>
+    </div>
+  </div>
+
+  <form id="quizForm">
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q1</span> RM1,250 + RM2,375 = ?</legend>
+      <label class="option"><input type="radio" name="q1" value="a"> RM3,525</label>
+      <label class="option"><input type="radio" name="q1" value="b"> RM3,625</label>
+      <label class="option"><input type="radio" name="q1" value="c"> RM3,725</label>
+      <div class="feedback" id="f1"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q2</span> RM2,430 + RM1,560 = ?</legend>
+      <label class="option"><input type="radio" name="q2" value="a"> RM3,990</label>
+      <label class="option"><input type="radio" name="q2" value="b"> RM3,890</label>
+      <label class="option"><input type="radio" name="q2" value="c"> RM4,090</label>
+      <div class="feedback" id="f2"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q3</span> RM3,250 + RM2,400 = ?</legend>
+      <label class="option"><input type="radio" name="q3" value="a"> RM5,550</label>
+      <label class="option"><input type="radio" name="q3" value="b"> RM5,650</label>
+      <label class="option"><input type="radio" name="q3" value="c"> RM5,750</label>
+      <div class="feedback" id="f3"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q4</span> RM4,125 + RM875 = ?</legend>
+      <label class="option"><input type="radio" name="q4" value="a"> RM4,900</label>
+      <label class="option"><input type="radio" name="q4" value="b"> RM5,000</label>
+      <label class="option"><input type="radio" name="q4" value="c"> RM5,100</label>
+      <div class="feedback" id="f4"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q5</span> RM1,999 + RM2,001 = ?</legend>
+      <label class="option"><input type="radio" name="q5" value="a"> RM3,900</label>
+      <label class="option"><input type="radio" name="q5" value="b"> RM4,100</label>
+      <label class="option"><input type="radio" name="q5" value="c"> RM4,000</label>
+      <div class="feedback" id="f5"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q6</span> RM1,250 + RM875 = ?</legend>
+      <label class="option"><input type="radio" name="q6" value="a"> RM2,125</label>
+      <label class="option"><input type="radio" name="q6" value="b"> RM2,225</label>
+      <label class="option"><input type="radio" name="q6" value="c"> RM2,325</label>
+      <div class="feedback" id="f6"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q7</span> A school buys items for RM2,350 and RM1,450. What is the total?</legend>
+      <label class="option"><input type="radio" name="q7" value="a"> RM3,700</label>
+      <label class="option"><input type="radio" name="q7" value="b"> RM3,800</label>
+      <label class="option"><input type="radio" name="q7" value="c"> RM3,900</label>
+      <div class="feedback" id="f7"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q8</span> RM2,450 + RM3,275 = ?</legend>
+      <label class="option"><input type="radio" name="q8" value="a"> RM5,625</label>
+      <label class="option"><input type="radio" name="q8" value="b"> RM5,725</label>
+      <label class="option"><input type="radio" name="q8" value="c"> RM5,825</label>
+      <div class="feedback" id="f8"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q9</span> RM1,250 + RM2,375 + RM875 = ?</legend>
+      <label class="option"><input type="radio" name="q9" value="a"> RM4,400</label>
+      <label class="option"><input type="radio" name="q9" value="b"> RM4,500</label>
+      <label class="option"><input type="radio" name="q9" value="c"> RM4,600</label>
+      <div class="feedback" id="f9"></div>
+    </fieldset>
+
+    <fieldset class="quiz-q">
+      <legend><span class="question-number">Q10</span> A school spends RM2,450, RM3,275 and RM1,500. What is the total?</legend>
+      <label class="option"><input type="radio" name="q10" value="a"> RM7,125</label>
+      <label class="option"><input type="radio" name="q10" value="b"> RM7,225</label>
+      <label class="option"><input type="radio" name="q10" value="c"> RM7,325</label>
+      <div class="feedback" id="f10"></div>
+    </fieldset>
+
+    <div class="button-row">
+      <button class="qq-btn" type="submit">✨ Check My Answers</button>
+      <button class="qq-btn secondary" type="reset">🔄 Try Again</button>
+    </div>
+  </form>
+
+  <section id="quizResult" aria-live="polite" aria-atomic="true">
+    <h2>🌸 Your Quiz Result 🌸</h2>
+    <div id="scoreNumber">? / 10</div>
+    <p id="resultMessage">
+      Choose your answers above, then click Check My Answers!
+    </p>
   </section>
-</main>
-<footer><strong>🎀 Math Adventure: Money Matters</strong><br>Year 3 Mathematics · Learn • Explore • Apply • Assess<br><span>Designed as a classroom learning prototype. Check all content and links before submission.</span></footer>
+
+  <section class="bonus-card">
+    <h2>💗 Bonus Practice: Wayground!</h2>
+    <p>
+      Ready for another challenge, Money Master?
+      Practise adding money values in our extra interactive quiz.
+    </p>
+    <p><strong>Game code: 06071805</strong></p>
+    <a
+      class="qq-btn bonus-link"
+      href="https://wayground.com/join?gc=06071805"
+      target="_blank"
+      rel="noopener noreferrer"
+    >🎮 Start Extra Practice</a>
+  </section>
+
+  <footer class="quiz-footer">
+    🎀 Math Adventure: Money Matters<br>
+    Year 3 Mathematics · Addition of Money
+  </footer>
+</div>
 
 <script>
-const pages=[...document.querySelectorAll('.page')];
+(function () {
+  const form = document.getElementById('quizForm');
 
-function showPage(id){
-  if(!document.getElementById(id)) return;
-  pages.forEach(p=>p.classList.toggle('active',p.id===id));
-  document.querySelectorAll('nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+  const answers = {
+    q1: 'b',
+    q2: 'a',
+    q3: 'b',
+    q4: 'b',
+    q5: 'c',
+    q6: 'a',
+    q7: 'b',
+    q8: 'b',
+    q9: 'b',
+    q10: 'b'
+  };
 
-document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+  const explanations = {
+    q1: 'RM1,250 + RM2,375 = RM3,625.',
+    q2: 'RM2,430 + RM1,560 = RM3,990.',
+    q3: 'RM3,250 + RM2,400 = RM5,650.',
+    q4: 'RM4,125 + RM875 = RM5,000.',
+    q5: 'RM1,999 + RM2,001 = RM4,000.',
+    q6: 'RM1,250 + RM875 = RM2,125.',
+    q7: 'RM2,350 + RM1,450 = RM3,800.',
+    q8: 'RM2,450 + RM3,275 = RM5,725.',
+    q9: 'RM1,250 + RM2,375 + RM875 = RM4,500.',
+    q10: 'RM2,450 + RM3,275 + RM1,500 = RM7,225.'
+  };
 
-const moneyFmt=n=>'RM'+Number(n).toLocaleString('en-MY');
-const a=document.getElementById('amountA');
-const b=document.getElementById('amountB');
+  function updateProgress() {
+    const answered = Object.keys(answers).filter(function (q) {
+      return form.querySelector('input[name="' + q + '"]:checked');
+    }).length;
 
-function updateLab(){
- const av=Number(a.value),bv=Number(b.value),sum=av+bv;
- document.getElementById('labelA').textContent=moneyFmt(av);
- document.getElementById('labelB').textContent=moneyFmt(bv);
- document.getElementById('total').textContent=moneyFmt(sum);
- document.getElementById('equation').textContent=moneyFmt(av)+' + '+moneyFmt(bv)+' = '+moneyFmt(sum);
- document.getElementById('limitNote').textContent=sum<=10000?'Great exploring! The total is within RM10,000.':'The total is above RM10,000. Try lowering one or both amounts.';
-}
+    document.getElementById('answeredCount').textContent =
+      answered + ' / 10 answered';
 
-a.addEventListener('input',updateLab);
-b.addEventListener('input',updateLab);
-
-document.getElementById('resetLab').addEventListener('click',()=>{
-  a.value=1250;
-  b.value=2375;
-  updateLab();
-});
-
-function updateBasket(){
- const selected=[...document.querySelectorAll('.product-check:checked')];
- const sum=selected.reduce((acc,el)=>acc+Number(el.dataset.price),0);
- document.getElementById('basketItems').textContent=selected.length?selected.map(el=>el.dataset.name).join(' + '):'No items selected yet.';
- document.getElementById('basketTotal').textContent=moneyFmt(sum);
- document.getElementById('basketMessage').textContent=selected.length?selected.length+' item(s) selected. Write the matching addition sentence in your notebook.':'Select items above to calculate the total.';
-}
-
-document.querySelectorAll('.product-check').forEach(el=>el.addEventListener('change',updateBasket));
-
-const answers={q1:'b',q2:'a',q3:'b',q4:'b',q5:'c',q6:'a',q7:'b',q8:'b',q9:'b',q10:'b'};
-const explanations={
- q1:'RM1,250 + RM2,375 = RM3,625.',
- q2:'RM2,430 + RM1,560 = RM3,990.',
- q3:'RM3,250 + RM2,400 = RM5,650.',
- q4:'RM4,125 + RM875 = RM5,000.',
- q5:'RM1,999 + RM2,001 = RM4,000.',
- q6:'RM1,250 + RM875 = RM2,125.',
- q7:'RM2,350 + RM1,450 = RM3,800.',
- q8:'RM2,450 + RM3,275 = RM5,725.',
- q9:'RM1,250 + RM2,375 + RM875 = RM4,500.',
- q10:'RM2,450 + RM3,275 + RM1,500 = RM7,225.'
-};
-
-document.getElementById('quizForm').addEventListener('submit',e=>{
- e.preventDefault();
- let score=0;
- Object.keys(answers).forEach((q,i)=>{
-  const chosen=document.querySelector('input[name="'+q+'"]:checked');
-  const fb=document.getElementById('f'+(i+1));
-  if(chosen&&chosen.value===answers[q]){
-   score++;
-   fb.textContent='Correct! '+explanations[q];
-   fb.style.color='#176b53';
-  }else{
-   fb.textContent='Review: '+explanations[q];
-   fb.style.color='#b83270';
+    document.getElementById('progressFill').style.width =
+      (answered * 10) + '%';
   }
- });
- const result=document.getElementById('quizResult');
- result.querySelector('.total-number').textContent=score+'/10';
- result.querySelector('p').textContent=score>=8?'Amazing! You have reached the 8/10 target. Keep practising!':'Good effort! Review the feedback, revisit Learn It!, and try again.';
- result.scrollIntoView({behavior:'smooth',block:'center'});
-});
 
-document.getElementById('resetQuiz').addEventListener('click',()=>{
- setTimeout(()=>{
-  document.querySelectorAll('.feedback').forEach(f=>f.textContent='');
-  const result=document.getElementById('quizResult');
-  result.querySelector('.total-number').textContent='?';
-  result.querySelector('p').textContent='Answer all ten questions, then click “Check my answers”.';
- },0);
-});
+  form.addEventListener('change', updateProgress);
 
-const moneyMissionAnswers={1:'3625',2:'3750',3:'7225'};
-const moneyMissionCompleted={};
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-function checkMoneyMission(question,answer){
- const feedback=document.getElementById('missionFeedback'+question);
- if(moneyMissionCompleted[question]){
-  feedback.textContent='⭐ Challenge already completed!';
-  return;
- }
- if(answer===moneyMissionAnswers[question]){
-  moneyMissionCompleted[question]=true;
-  feedback.textContent='🎉 Correct! You earned a treasure star!';
-  feedback.style.color='#176b53';
- }else{
-  feedback.textContent='💗 Not quite! Check the amounts and try again.';
-  feedback.style.color='#b83270';
- }
- const score=Object.keys(moneyMissionCompleted).length;
- document.getElementById('missionScore').textContent=score+'/3';
- document.getElementById('missionResult').textContent=score===3?'👑 Congratulations, Money Master! You unlocked the treasure! 💎':'Keep going! Collect all 3 treasure stars.';
-}
+    let score = 0;
 
-function resetMoneyMission(){
- for(let i=1;i<=3;i++){
-  delete moneyMissionCompleted[i];
-  const f=document.getElementById('missionFeedback'+i);
-  f.textContent='';
-  f.style.color='';
- }
- document.getElementById('missionScore').textContent='0/3';
- document.getElementById('missionResult').textContent='Complete all three challenges to collect your badge!';
-}
+    Object.keys(answers).forEach(function (q, index) {
+      const chosen = form.querySelector(
+        'input[name="' + q + '"]:checked'
+      );
+
+      const feedback = document.getElementById('f' + (index + 1));
+      const correct = chosen && chosen.value === answers[q];
+
+      if (correct) {
+        score++;
+        feedback.textContent = '🌟 Correct! ' + explanations[q];
+        feedback.className = 'feedback show correct';
+      } else {
+        feedback.textContent =
+          (chosen ? '💗 Not quite. ' : '💡 No answer selected. ') +
+          explanations[q];
+
+        feedback.className = 'feedback show incorrect';
+      }
+    });
+
+    document.getElementById('scoreNumber').textContent =
+      score + ' / 10';
+
+    let message;
+
+    if (score === 10) {
+      message = '👑 Perfect score! You are a Money Master!';
+    } else if (score >= 8) {
+      message = '🎉 Amazing! You reached the target of at least 8/10!';
+    } else if (score >= 5) {
+      message = '🌸 Good effort! Read the feedback and try again to improve your score.';
+    } else {
+      message = '💪 Keep practising! Revisit Learn It and try these questions again.';
+    }
+
+    document.getElementById('resultMessage').textContent =
+      message + ' You scored ' + score + ' out of 10.';
+
+    document.getElementById('quizResult').scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  });
+
+  form.addEventListener('reset', function () {
+    setTimeout(function () {
+      document.querySelectorAll('#quizQuest .feedback').forEach(function (f) {
+        f.textContent = '';
+        f.className = 'feedback';
+      });
+
+      document.getElementById('scoreNumber').textContent = '? / 10';
+
+      document.getElementById('resultMessage').textContent =
+        'Choose your answers above, then click Check My Answers!';
+
+      updateProgress();
+    }, 0);
+  });
+
+  updateProgress();
+})();
 </script>
 </body>
 </html>
+
+<!-- EXTRA PRACTICE: WAYGROUND -->
+<div class="extra-practice">
+  <div class="extra-practice-icon">🌟</div>
+  <h3>Extra Practice: Wayground Quiz</h3>
+  <p>
+    Ready for more money addition challenges?
+    Try this extra practice quiz on Wayground
+    and test your skills!
+  </p>
+
+  <a
+    href="https://wayground.com/join?gc=06071805"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="wayground-button"
+  >
+    🎮 Play Extra Practice Quiz
+  </a>
+
+  <p class="game-code">
+    Game Code: <strong>06071805</strong>
+  </p>
+</div>
+
+<style>
+.extra-practice {
+  background: linear-gradient(135deg, #fff0f7, #f0e6ff);
+  border: 2px dashed #e7a1cf;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 600px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.extra-practice-icon {
+  font-size: 42px;
+}
+
+.extra-practice h3 {
+  color: #c04b91;
+  margin: 10px 0;
+}
+
+.extra-practice p {
+  color: #654568;
+  line-height: 1.6;
+}
+
+.wayground-button {
+  display: inline-block;
+  background: #d95da8;
+  color: white !important;
+  padding: 13px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+.wayground-button:hover {
+  background: #b83e89;
+  transform: translateY(-2px);
+}
+
+.game-code {
+  font-size: 14px;
+}
+</style>
+
+    <
