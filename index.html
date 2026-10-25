@@ -244,105 +244,358 @@ hr{border:0;border-top:1px solid #efe2f1;margin:24px 0}
   </section>
 
   <section class="page" id="shop">
-    <div class="hero"><span class="eyebrow">Station 03 · Apply</span><h1>🛍️ Shop & Solve!</h1><p class="lead">Your teacher is setting up a mathematics corner. Choose school supplies and calculate the total cost of your shopping basket.</p></div>
-    <div class="section-heading"><div><h2>Miss Maths' mini-market</h2><p>Choose up to four items. Prices are fictional classroom examples for practising addition.</p></div></div>
-    <div class="shop-grid">
-      <div class="product"><div class="emoji">📚</div><h3>Storybooks</h3><div class="price">RM1,250</div><label><input type="checkbox" class="product-check" data-price="1250" data-name="Storybooks"> Add item</label></div>
-      <div class="product"><div class="emoji">🧮</div><h3>Calculators</h3><div class="price">RM2,375</div><label><input type="checkbox" class="product-check" data-price="2375" data-name="Calculators"> Add item</label></div>
-      <div class="product"><div class="emoji">✏️</div><h3>Stationery sets</h3><div class="price">RM875</div><label><input type="checkbox" class="product-check" data-price="875" data-name="Stationery sets"> Add item</label></div>
-      <div class="product"><div class="emoji">🎨</div><h3>Art supplies</h3><div class="price">RM1,450</div><label><input type="checkbox" class="product-check" data-price="1450" data-name="Art supplies"> Add item</label></div>
+    
+<div id="shop-solve" class="money-adventure">
+  <style>
+    #shop-solve.money-adventure {
+      font-family: Arial, sans-serif;
+      background: #FFF9FC;
+      color: #55445F;
+      padding: 24px;
+      border-radius: 22px;
+      box-sizing: border-box;
+      line-height: 1.6;
+    }
+
+    #shop-solve * {
+      box-sizing: border-box;
+    }
+
+    #shop-solve .hero {
+      text-align: center;
+      padding: 28px 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #F8BBD0, #E6D6FF, #C8F3DF);
+      margin-bottom: 22px;
+    }
+
+    #shop-solve h1 {
+      font-size: clamp(27px, 5vw, 40px);
+      margin: 0 0 10px;
+      color: #783F68;
+    }
+
+    #shop-solve h2 {
+      color: #A64D79;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    #shop-solve .subtitle {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    #shop-solve .card {
+      background: #FFFFFF;
+      border: 2px solid #F4D5E5;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 18px 0;
+      box-shadow: 0 5px 14px rgba(145, 94, 130, 0.08);
+    }
+
+    #shop-solve .tag {
+      display: inline-block;
+      background: #FCE4EC;
+      color: #884B70;
+      border-radius: 20px;
+      padding: 6px 12px;
+      margin: 4px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    #shop-solve .activity-button {
+      display: inline-block;
+      background: #D95D91;
+      color: #FFFFFF !important;
+      text-decoration: none !important;
+      padding: 13px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    #shop-solve .activity-button:hover {
+      background: #B94378;
+    }
+
+    #shop-solve .secondary-button {
+      background: #8D70C7;
+      border: 0;
+      color: white;
+      border-radius: 25px;
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #shop-solve .question {
+      background: #FFF4F8;
+      border-radius: 14px;
+      padding: 15px;
+      margin: 12px 0;
+    }
+
+    #shop-solve input {
+      width: 100%;
+      max-width: 230px;
+      padding: 11px;
+      border: 2px solid #E6D6FF;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    #shop-solve .feedback {
+      font-weight: bold;
+      margin-top: 8px;
+      min-height: 24px;
+    }
+
+    #shop-solve .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    #shop-solve .product {
+      background: #FFF8FC;
+      border: 1px solid #F1D9E7;
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    #shop-solve .product .emoji {
+      display: block;
+      font-size: 30px;
+    }
+
+    #shop-solve .price {
+      color: #A64D79;
+      font-weight: bold;
+    }
+
+    #shop-solve .note {
+      font-size: 14px;
+      color: #75677B;
+    }
+
+    #shop-solve .footer {
+      text-align: center;
+      padding: 14px;
+      color: #8D70A1;
+    }
+
+    @media (max-width: 480px) {
+      #shop-solve.money-adventure {
+        padding: 12px;
+      }
+
+      #shop-solve .card {
+        padding: 16px;
+      }
+    }
+  </style>
+
+  <div class="hero">
+    <div style="font-size:42px" aria-hidden="true">🛍️💗</div>
+    <h1>Shop &amp; Solve</h1>
+    <p class="subtitle">
+      Welcome to our Money Matters shopping zone!
+      Practise adding money, explore product prices, and become a smart shopper.
+    </p>
+    <div style="margin-top:12px">
+      <span class="tag">Year 3 Mathematics</span>
+      <span class="tag">Addition of Money</span>
+      <span class="tag">Up to RM10,000</span>
     </div>
-    <div class="total-box"><div class="tag">Your shopping basket</div><div id="basketItems">No items selected yet.</div><div class="total-number" id="basketTotal">RM0</div><p id="basketMessage">Select items above to calculate the total.</p></div>
-    <div class="grid" style="margin-top:16px">
-      <div class="card"><h3>🎯 Mission 1</h3><p>Select Storybooks and Calculators. What is the total?</p><details><summary><strong>Show answer</strong></summary><p>RM1,250 + RM2,375 = <strong>RM3,625</strong>.</p></details></div>
-      <div class="card"><h3>🎯 Mission 2</h3><p>Select Stationery sets and Art supplies. What is the total?</p><details><summary><strong>Show answer</strong></summary><p>RM875 + RM1,450 = <strong>RM2,325</strong>.</p></details></div>
+  </div>
+
+  <section class="card">
+    <h2>🎀 Mini Market Adventure</h2>
+    <p>
+      Ready to become a smart shopper? Enter the Mini Market Adventure
+      and complete shopping missions by following the shopping lists,
+      adding product prices, and calculating the correct amounts.
+    </p>
+
+    <div>
+      <span class="tag">🧮 Addition of Money</span>
+      <span class="tag">🛒 Shopping Missions</span>
+      <span class="tag">💰 Calculating Change</span>
     </div>
-    <div class="notice">Challenge: Choose three categories, record your number sentence, and explain how you checked your answer.</div>
-    <div class="button-row"><button class="btn secondary" data-go="quiz">Next: Quiz Quest! →</button></div>
+
+    <p><strong>Your mission:</strong></p>
+    <ol>
+      <li>Open the Mini Market Adventure.</li>
+      <li>Read each shopping mission carefully.</li>
+      <li>Add the prices of the required items.</li>
+      <li>Work out the change when you pay.</li>
+      <li>Check your answers before finishing.</li>
+    </ol>
+
+    <div style="text-align:center">
+      <a
+        class="activity-button"
+        href="https://canva.link/mini-market-adventure"
+        target="_blank"
+        rel="noopener noreferrer">
+        Start Mini Market Adventure 🚀
+      </a>
+    </div>
+
+    <p class="note" style="text-align:center">
+      The activity opens in a new tab. If it does not open, check that the
+      Canva link is published and accessible.
+    </p>
   </section>
-  
-<div id="miniMarket">
-<style>
-#miniMarket {
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  color: #633b58;
-  background: #fff9fc;
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-#miniMarket * { box-sizing: border-box; }
-#miniMarket h2 { color: #e84393; text-align: center; }
-#miniMarket .intro { text-align: center; line-height: 1.6; }
-#miniMarket .market-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(125px,1fr));
-  gap: 12px;
-  margin: 20px 0;
-}
-#miniMarket .product {
-  background: white;
-  border: 2px solid #f6c5df;
-  border-radius: 16px;
-  padding: 14px 8px;
-  text-align: center;
-}
-#miniMarket .emoji { font-size: 38px; }
-#miniMarket .price { color: #df398d; font-weight: bold; margin: 8px; }
-#miniMarket button {
-  background: #ed78b5;
-  color: white;
-  border: 0;
-  padding: 10px 13px;
-  margin: 4px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-}
-#miniMarket button:hover { background: #d94c99; }
-#miniMarket button:focus-visible {
-  outline: 3px solid #633b58;
-  outline-offset: 3px;
-}
-#miniMarket .secondary { background: #9b82d6; }
-#miniMarket .panel {
-  background: white;
-  border: 2px solid #e6d6ff;
-  padding: 16px;
-  border-radius: 16px;
-  margin-top: 14px;
-}
-#miniMarket .money-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-}
-#miniMarket .money-buttons button { background: #69b99a; }
-#miniMarket .money-buttons button.selected {
-  background: #347b62;
-  outline: 3px solid #b7ead5;
-}
-#miniMarket .total {
-  font-size: 23px;
-  font-weight: bold;
-  color: #e84393;
-}
-#miniMarket .feedback {
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 12px;
-  background: #fff0f7;
-  line-height: 1.6;
-}
-#miniMarket .progress { text-align: center; font-weight: bold; }
-#miniMarket .small { font-size: 13px; line-height: 1.6; }
-@media(max-width:400px) {
-  #miniMarket { padding: 12px; }
-  #miniMarket .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
+
+  <section class="card">
+    <h2>🛍️ Meet the Products</h2>
+    <p>Study these school-shop products and their prices before you solve the missions.</p>
+
+    <div class="product-grid">
+      <div class="product">
+        <span class="emoji" aria-hidden="true">✏️</span>
+        <strong>Pencil</strong>
+        <div class="price">RM1.50</div>
+      </div>
+      <div class="product">
+        <span class="emoji" aria-hidden="true">📓</span>
+        <strong>Notebook</strong>
+        <div class="price">RM3.20</div>
+      </div>
+      <div class="product">
+        <span class="emoji" aria-hidden="true">📏</span>
+        <strong>Ruler</strong>
+        <div class="price">RM2.00</div>
+      </div>
+      <div class="product">
+        <span class="emoji" aria-hidden="true">🧽</span>
+        <strong>Eraser</strong>
+        <div class="price">RM0.80</div>
+      </div>
+      <div class="product">
+        <span class="emoji" aria-hidden="true">🖊️</span>
+        <strong>Pencil Case</strong>
+        <div class="price">RM4.50</div>
+      </div>
+      <div class="product">
+        <span class="emoji" aria-hidden="true">🖍️</span>
+        <strong>Crayons</strong>
+        <div class="price">RM5.60</div>
+      </div>
+    </div>
+
+    <p class="note">
+      These products are for preview and practice. Follow the shopping list
+      given in each Canva mission rather than choosing items freely.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>🧮 Practice Corner</h2>
+    <p>Try these questions before or after playing the shopping adventure.</p>
+
+    <div class="question">
+      <strong>Mission 1: Pencil + Notebook</strong>
+      <p>RM1.50 + RM3.20 = ?</p>
+      <label for="shop-answer-1">Your answer (RM):</label><br>
+      <input id="shop-answer-1" type="number" min="0" step="0.01"
+        placeholder="e.g. 4.70" inputmode="decimal">
+      <br>
+      <button class="secondary-button" type="button"
+        onclick="shopCheckAnswer('shop-answer-1','shop-feedback-1',4.70)">
+        Check Answer
+      </button>
+      <div id="shop-feedback-1" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="question">
+      <strong>Mission 2: Ruler + Eraser + Pencil</strong>
+      <p>RM2.00 + RM0.80 + RM1.50 = ?</p>
+      <label for="shop-answer-2">Your answer (RM):</label><br>
+      <input id="shop-answer-2" type="number" min="0" step="0.01"
+        placeholder="e.g. 4.30" inputmode="decimal">
+      <br>
+      <button class="secondary-button" type="button"
+        onclick="shopCheckAnswer('shop-answer-2','shop-feedback-2',4.30)">
+        Check Answer
+      </button>
+      <div id="shop-feedback-2" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="question">
+      <strong>Checkout Challenge: Calculate the Change</strong>
+      <p>You pay RM10.00 for items costing RM4.30. How much change do you receive?</p>
+      <label for="shop-answer-3">Your answer (RM):</label><br>
+      <input id="shop-answer-3" type="number" min="0" step="0.01"
+        placeholder="e.g. 5.70" inputmode="decimal">
+      <br>
+      <button class="secondary-button" type="button"
+        onclick="shopCheckAnswer('shop-answer-3','shop-feedback-3',5.70)">
+        Check Answer
+      </button>
+      <div id="shop-feedback-3" class="feedback" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🌟 Remember!</h2>
+    <ul>
+      <li>Line up the decimal points when adding money.</li>
+      <li>Check that ringgit and sen are in the correct places.</li>
+      <li>Read the shopping list carefully.</li>
+      <li>To calculate change, subtract the total cost from the amount paid.</li>
+    </ul>
+    <p><strong>You can do it, little mathematician! 💗</strong></p>
+  </section>
+
+  <div class="footer">
+    <p>Money Matters: Let’s Add! 🎀</p>
+    <p class="note">Mathematics Year 3 · Addition of Money</p>
+  </div>
+
+  <script>
+    function shopCheckAnswer(inputId, feedbackId, correctAnswer) {
+      var input = document.getElementById(inputId);
+      var feedback = document.getElementById(feedbackId);
+
+      if (!input || !feedback) return;
+
+      if (input.value.trim() === "") {
+        feedback.textContent = "Please enter your answer first. 💗";
+        feedback.style.color = "#A64D79";
+        return;
+      }
+
+      var enteredAnswer = Number(input.value);
+
+      if (!Number.isFinite(enteredAnswer)) {
+        feedback.textContent = "Please enter a valid amount.";
+        feedback.style.color = "#B94378";
+        return;
+      }
+
+      if (Math.round(enteredAnswer * 100) === Math.round(correctAnswer * 100)) {
+        feedback.textContent = "Correct! Great job! 🎉";
+        feedback.style.color = "#24865A";
+      } else {
+        feedback.textContent = "Not quite. Try adding or subtracting again! 🌷";
+        feedback.style.color = "#B94378";
+      }
+    }
+  </script>
+</div>
+
+    
 </style>
 
 <h2>🛒 Mini Market Adventure!</h2>
