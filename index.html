@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +32,7 @@ body {
 button,input,select { font:inherit; }
 button,a { -webkit-tap-highlight-color:transparent; }
 a { color:var(--pink-dark); }
+
 .site-header {
   position:sticky;
   top:0;
@@ -230,6 +233,7 @@ footer {
   color:#76677c;font-size:.9rem;
 }
 hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
+
 @media(max-width:760px) {
   .header-inner { align-items:flex-start;flex-direction:column; }
   nav { width:100%; }
@@ -253,12 +257,18 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
 </head>
 
 <body>
+
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
       <span class="brand-mark">🎀</span>
-      <span>Math Adventure<br><span style="font-size:.75rem;color:#6e6174;font-weight:700">Money Matters · Year 3</span></span>
+      <span>Math Adventure<br>
+        <span style="font-size:.75rem;color:#6e6174;font-weight:700">
+          Money Matters · Year 3
+        </span>
+      </span>
     </div>
+
     <nav aria-label="Main navigation">
       <button class="active" data-page="home">🏠 Home</button>
       <button data-page="learn">📚 Learn It</button>
@@ -271,10 +281,9 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
 
 <main>
 
-<!-- HOME -->
+<!-- ================= HOME PAGE ================= -->
 <section class="page active" id="home">
 
-  <!-- WELCOME HERO -->
   <div class="hero">
     <span class="eyebrow">
       Year 3 Mathematics · Numbers &amp; Operations
@@ -302,7 +311,6 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
     </div>
   </div>
 
-  <!-- LEARNING JOURNEY -->
   <div class="section-heading">
     <div>
       <h2>🌈 Your Learning Journey</h2>
@@ -315,125 +323,78 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
 
   <div class="grid">
 
-    <!-- STATION 1: LEARN IT -->
     <article class="card resource-card">
       <div class="icon pink-bg">📚</div>
-
       <div>
         <span class="tag">01 · Understand</span>
-
         <h3>Learn It!</h3>
-
         <p>
           Discover how to add money values using clear explanations,
           place value and step-by-step learning materials.
         </p>
-
-        <button class="btn" data-go="learn">
-          Open Lesson 📖
-        </button>
+        <button class="btn" data-go="learn">Open Lesson 📖</button>
       </div>
     </article>
 
-    <!-- STATION 2: EXPLORE IT -->
     <article class="card resource-card">
       <div class="icon mint-bg">🔍</div>
-
       <div>
         <span class="tag">02 · Explore</span>
-
         <h3>Explore It!</h3>
-
         <p>
           Enter the Money Lab, explore different amounts and
           discover how changing values affects the total.
         </p>
-
-        <button class="btn mint" data-go="explore">
-          Open Money Lab 🔬
-        </button>
+        <button class="btn mint" data-go="explore">Open Money Lab 🔬</button>
       </div>
     </article>
 
-    <!-- STATION 3: SHOP & SOLVE -->
     <article class="card resource-card">
       <div class="icon yellow-bg">🛍️</div>
-
       <div>
         <span class="tag">03 · Apply</span>
-
         <h3>Shop &amp; Solve!</h3>
-
         <p>
           Complete your assigned mini-market shopping mission
           and use addition to solve real-life money problems.
         </p>
-
-        <button class="btn yellow" data-go="shop">
-          Visit Mini-Market 🛒
-        </button>
+        <button class="btn yellow" data-go="shop">Visit Mini-Market 🛒</button>
       </div>
     </article>
 
-    <!-- STATION 4: QUIZ QUEST -->
     <article class="card resource-card">
       <div class="icon lav-bg">🏆</div>
-
       <div>
         <span class="tag">04 · Check</span>
-
         <h3>Quiz Quest!</h3>
-
         <p>
-          Answer ten questions, check your score, learn from
+          Answer your questions, check your score, learn from
           your mistakes and continue with Wayground practice.
         </p>
-
-        <button class="btn secondary" data-go="quiz">
-          Start Quiz Quest 🌟
-        </button>
+        <button class="btn secondary" data-go="quiz">Start Quiz Quest 🌟</button>
       </div>
     </article>
 
   </div>
 
-  <!-- LEARNING GOALS -->
   <div class="section-heading">
     <div>
       <h2>🎯 Our Learning Goals</h2>
-
-      <p>
-        By the end of this adventure, you should be able to:
-      </p>
+      <p>By the end of this adventure, you should be able to:</p>
     </div>
   </div>
 
   <div class="card">
     <ul class="list">
-
-      <li>
-        💰 Add two money values with totals up to RM10,000.
-      </li>
-
-      <li>
-        🔢 Explain how changing one amount affects the sum.
-      </li>
-
-      <li>
-        🛍️ Solve real-life shopping problems involving money.
-      </li>
-
-      <li>
-        ✅ Check calculations and learn from feedback.
-      </li>
-
+      <li>💰 Add two money values with totals up to RM10,000.</li>
+      <li>🔢 Explain how changing one amount affects the sum.</li>
+      <li>🛍️ Solve real-life shopping problems involving money.</li>
+      <li>✅ Check calculations and learn from feedback.</li>
     </ul>
   </div>
 
-  <!-- MOTIVATIONAL MESSAGE -->
   <div class="notice">
     <strong>🌟 Ready to become a Money Master?</strong>
-
     <p>
       Every great mathematician starts with one step.
       Click <strong>Start Learning</strong> and begin your
@@ -442,70 +403,60 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
   </div>
 
 </section>
-  
-<!-- LEARN -->
+
+<!-- ================= LEARN IT PAGE ================= -->
 <section class="page" id="learn">
 
-  <!-- LEARN IT STYLES -->
   <style>
     .learn-slides-container {
-      margin: 28px 0;
-      padding: 22px;
-      background: linear-gradient(
-        135deg,
-        #fff4fa,
-        #f2eaff,
-        #effff8
-      );
-      border: 2px solid #f4c4df;
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+      margin:28px 0;
+      padding:22px;
+      background:linear-gradient(135deg,#fff4fa,#f2eaff,#effff8);
+      border:2px solid #f4c4df;
+      border-radius:24px;
+      box-shadow:var(--shadow);
     }
 
     .learn-slides-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #ffffff;
-      border: 1px solid #f0d5e5;
+      position:relative;
+      width:100%;
+      aspect-ratio:16 / 9;
+      overflow:hidden;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid #f0d5e5;
     }
 
     .learn-slides-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
     }
 
     .learn-slides-caption {
-      margin: 14px 0 4px;
-      text-align: center;
-      line-height: 1.6;
-      color: var(--ink);
+      margin:14px 0 4px;
+      text-align:center;
+      line-height:1.6;
+      color:var(--ink);
     }
 
     .learn-slides-actions {
-      justify-content: center;
-      margin-top: 16px;
+      justify-content:center;
+      margin-top:16px;
     }
 
-    @media (max-width: 600px) {
+    @media(max-width:600px) {
       .learn-slides-container {
-        padding: 12px;
-        margin: 20px 0;
-        border-radius: 16px;
+        padding:12px;
+        margin:20px 0;
+        border-radius:16px;
       }
-
-      .learn-slides-frame {
-        border-radius: 10px;
-      }
+      .learn-slides-frame { border-radius:10px; }
     }
   </style>
 
-  <!-- HERO -->
   <div class="hero">
     <span class="eyebrow">Station 01 · Understand</span>
     <h1>📚 Learn It!</h1>
@@ -515,7 +466,6 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
     </p>
   </div>
 
-  <!-- LEARNING STEPS -->
   <div class="section-heading">
     <div>
       <h2>How to Add Money 💰</h2>
@@ -528,42 +478,32 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
       <b>1. Write ✍️</b>
       Arrange the amounts in columns.
     </div>
-
     <div class="step">
       <b>2. Align 📏</b>
       Keep the same place values together.
     </div>
-
     <div class="step">
       <b>3. Add ➕</b>
       Add from the smallest place value and regroup when needed.
     </div>
-
     <div class="step">
       <b>4. Check ✅</b>
       Estimate or use the inverse operation to check.
     </div>
   </div>
 
-  <!-- WORKED EXAMPLE -->
   <div class="example">
     <div class="tag">🌟 Worked Example</div>
-
-    <div class="mathline">
-      RM1,250 + RM2,375 = RM3,625
-    </div>
-
+    <div class="mathline">RM1,250 + RM2,375 = RM3,625</div>
     <p>
       Thousands: 1,000 + 2,000 = 3,000<br>
       Hundreds: 200 + 300 = 500<br>
       Tens: 50 + 70 = 120<br>
       Ones: 0 + 5 = 5
     </p>
-
     <p><strong>Total: RM3,625</strong></p>
   </div>
 
-  <!-- LEARNING EXAMPLES -->
   <div class="section-heading">
     <div>
       <h2>Let's Understand Better! ✨</h2>
@@ -576,34 +516,23 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
     <div class="card">
       <h3>✏️ Example 1: Let's Try!</h3>
       <p>Calculate RM2,430 + RM1,560.</p>
-
       <details>
         <summary><strong>Show answer</strong></summary>
-        <p>
-          RM2,430 + RM1,560 =
-          <strong>RM3,990</strong>
-        </p>
+        <p>RM2,430 + RM1,560 = <strong>RM3,990</strong></p>
       </details>
     </div>
 
     <div class="card">
       <h3>🌟 Example 2: Challenge</h3>
-      <p>
-        Calculate RM4,125 + RM875. Think about how regrouping helps you.
-      </p>
-
+      <p>Calculate RM4,125 + RM875. Think about how regrouping helps you.</p>
       <details>
         <summary><strong>Show answer</strong></summary>
-        <p>
-          RM4,125 + RM875 =
-          <strong>RM5,000</strong>
-        </p>
+        <p>RM4,125 + RM875 = <strong>RM5,000</strong></p>
       </details>
     </div>
 
   </div>
 
-  <!-- TEACHER NOTE -->
   <div class="notice">
     <strong>👩‍🏫 Teacher note:</strong>
     These examples support learning about money addition and place value.
@@ -611,7 +540,7 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
     curriculum requirements.
   </div>
 
-  <!-- GOOGLE SLIDES -->
+  <!-- OFFICIAL GOOGLE SLIDES PUBLISHED EMBED -->
   <div class="learn-slides-container">
 
     <div class="section-heading">
@@ -627,9 +556,11 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
 
     <div class="learn-slides-frame">
       <iframe
-        src="https://docs.google.com/presentation/d/1bDn7kJJfVZO6Lc3-D1jgBWLs86KCxsthIFsyspmdUK8/embed?start=false&amp;loop=false&amp;delayms=3000"
-        title="Money Matters Learning Slides for Year 3 Mathematics"
-        loading="lazy"
+        src="https://docs.google.com/presentation/d/e/2PACX-1vRmRy9zsdWv8lp_cDHG3ubAgZKWbZkLlPDnFszLi4yw2iwRZ9pJfeh90gZbQpcR4LKCvmuvIQ2THU39/pubembed?start=true&amp;loop=true&amp;delayms=3000"
+        title="Published Money Matters Learning Slides for Year 3 Mathematics"
+        loading="eager"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; fullscreen"
         allowfullscreen>
       </iframe>
     </div>
@@ -642,16 +573,15 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
     <div class="button-row learn-slides-actions">
       <a
         class="btn secondary"
-        href="https://docs.google.com/presentation/d/1bDn7kJJfVZO6Lc3-D1jgBWLs86KCxsthIFsyspmdUK8/edit"
+        href="https://docs.google.com/presentation/d/1bDn7kJJfVZO6Lc3-D1jgBWLs86KCxsthIFsyspmdUK8/edit?usp=sharing"
         target="_blank"
         rel="noopener noreferrer">
-        💻 Open Full Presentation
+        💻 Open Google Slides in a new tab
       </a>
     </div>
 
   </div>
 
-  <!-- NEXT SECTION -->
   <div class="button-row">
     <button class="btn mint" data-go="explore">
       Next: Explore It! →
@@ -660,168 +590,399 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
 
 </section>
 
-<!-- EXPLORE -->
+<!-- ================= EXPLORE IT PAGE ================= -->
 <section class="page" id="explore">
-  <div class="hero"><span class="eyebrow">Station 02 · Investigate</span><h1>🔍 Explore It!</h1><p class="lead">Welcome to the Money Lab! Move the sliders to change two money values. The total updates as you explore.</p></div>
-  <div class="section-heading"><div><h2>Interactive Money Lab</h2><p>Try changing one amount while keeping the other amount the same.</p></div></div>
+
+  <div class="hero">
+    <span class="eyebrow">Station 02 · Investigate</span>
+    <h1>🔍 Explore It!</h1>
+    <p class="lead">
+      Welcome to the Money Lab! Move the sliders to change two
+      money values. The total updates as you explore.
+    </p>
+  </div>
+
+  <div class="section-heading">
+    <div>
+      <h2>Interactive Money Lab</h2>
+      <p>Try changing one amount while keeping the other amount the same.</p>
+    </div>
+  </div>
+
   <div class="lab-controls">
-    <div class="control"><label for="amountA"><span>💗 First amount</span><span id="labelA">RM1,250</span></label><input id="amountA" type="range" min="0" max="5000" step="50" value="1250"><div class="small">Move the slider from RM0 to RM5,000.</div></div>
-    <div class="control"><label for="amountB"><span>💜 Second amount</span><span id="labelB">RM2,375</span></label><input id="amountB" type="range" min="0" max="5000" step="25" value="2375"><div class="small">Move the slider from RM0 to RM5,000.</div></div>
+
+    <div class="control">
+      <label for="amountA">
+        <span>💗 First amount</span>
+        <span id="labelA">RM1,250</span>
+      </label>
+      <input id="amountA" type="range" min="0" max="5000" step="50" value="1250">
+      <div class="small">Move the slider from RM0 to RM5,000.</div>
+    </div>
+
+    <div class="control">
+      <label for="amountB">
+        <span>💜 Second amount</span>
+        <span id="labelB">RM2,375</span>
+      </label>
+      <input id="amountB" type="range" min="0" max="5000" step="25" value="2375">
+      <div class="small">Move the slider from RM0 to RM5,000.</div>
+    </div>
+
   </div>
-  <div class="total-box"><div class="tag">Your total</div><div class="total-number" id="total">RM3,625</div><p id="equation">RM1,250 + RM2,375 = RM3,625</p><p id="limitNote" class="small">Great exploring! The total is within RM10,000.</p></div>
+
+  <div class="total-box">
+    <div class="tag">Your total</div>
+    <div class="total-number" id="total">RM3,625</div>
+    <p id="equation">RM1,250 + RM2,375 = RM3,625</p>
+    <p id="limitNote" class="small">
+      Great exploring! The total is within RM10,000.
+    </p>
+  </div>
+
   <div class="grid" style="margin-top:16px">
-    <div class="card"><h3>🧠 Think about it</h3><ol class="list"><li>Increase the first amount by RM500. What happens to the total?</li><li>Keep the first amount fixed and reduce the second amount by RM500. What changes?</li><li>Can you make a total of exactly RM5,000?</li></ol></div>
-    <div class="card"><h3>📝 Record your findings</h3><p>Try three different calculations. Write each pair of amounts and its total in your notebook.</p><button class="btn secondary" id="resetLab" type="button">Reset example</button></div>
+
+    <div class="card">
+      <h3>🧠 Think about it</h3>
+      <ol class="list">
+        <li>Increase the first amount by RM500. What happens to the total?</li>
+        <li>Keep the first amount fixed and reduce the second amount by RM500. What changes?</li>
+        <li>Can you make a total of exactly RM5,000?</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📝 Record your findings</h3>
+      <p>
+        Try three different calculations. Write each pair of amounts
+        and its total in your notebook.
+      </p>
+      <button class="btn secondary" id="resetLab" type="button">
+        Reset example
+      </button>
+    </div>
+
   </div>
 
-  <div class="section-heading"><div><h2>🎀 Money Explorer: Treasure Hunt!</h2><p>Complete three challenges to unlock your Money Master badge.</p></div></div>
+  <div class="section-heading">
+    <div>
+      <h2>🎀 Money Explorer: Treasure Hunt!</h2>
+      <p>Complete three challenges to unlock your Money Master badge.</p>
+    </div>
+  </div>
+
   <div class="card" style="background:linear-gradient(135deg,#ffe0ed,#eee5ff,#d8f8e9)">
+
     <div style="text-align:center;font-size:2.6rem">👑💎🎁</div>
+
     <h2 style="text-align:center">The RM10,000 Treasure Hunt</h2>
-    <p style="text-align:center">The Money Princess needs your help! Solve each addition challenge to unlock her treasure.</p>
-    <div class="example"><span class="tag">⭐ Challenge 1 · The Shopping Bag</span><h3>How much did the princess spend?</h3><p>💗 Handbag: RM1,250<br>💜 Shoes: RM2,375</p><p><strong>What is the total cost?</strong></p>
-      <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3625')">RM3,625</button> <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3525')">RM3,525</button> <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3725')">RM3,725</button><p id="missionFeedback1" class="feedback" aria-live="polite"></p>
+
+    <p style="text-align:center">
+      The Money Princess needs your help! Solve each addition
+      challenge to unlock her treasure.
+    </p>
+
+    <div class="example">
+      <span class="tag">⭐ Challenge 1 · The Shopping Bag</span>
+      <h3>How much did the princess spend?</h3>
+      <p>💗 Handbag: RM1,250<br>💜 Shoes: RM2,375</p>
+      <p><strong>What is the total cost?</strong></p>
+
+      <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3625')">RM3,625</button>
+      <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3525')">RM3,525</button>
+      <button class="btn secondary" type="button" onclick="checkMoneyMission(1,'3725')">RM3,725</button>
+
+      <p id="missionFeedback1" class="feedback" aria-live="polite"></p>
     </div>
-    <div class="example"><span class="tag">🌈 Challenge 2 · Unlock the Treasure</span><h3>Which amount completes RM10,000?</h3><p>RM6,250 + RM_____ = RM10,000</p>
-      <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3750')">RM3,750</button> <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3250')">RM3,250</button> <button class="btn mint" type="button" onclick="checkMoneyMission(2,'4250')">RM4,250</button><p id="missionFeedback2" class="feedback" aria-live="polite"></p>
+
+    <div class="example">
+      <span class="tag">🌈 Challenge 2 · Unlock the Treasure</span>
+      <h3>Which amount completes RM10,000?</h3>
+      <p>RM6,250 + RM_____ = RM10,000</p>
+
+      <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3750')">RM3,750</button>
+      <button class="btn mint" type="button" onclick="checkMoneyMission(2,'3250')">RM3,250</button>
+      <button class="btn mint" type="button" onclick="checkMoneyMission(2,'4250')">RM4,250</button>
+
+      <p id="missionFeedback2" class="feedback" aria-live="polite"></p>
     </div>
-    <div class="example"><span class="tag">🧠 Challenge 3 · The Final Key</span><h3>The princess buys three gifts.</h3><p>🎁 Gift A: RM2,450<br>🎁 Gift B: RM3,275<br>🎁 Gift C: RM1,500</p><p><strong>What is the total cost?</strong></p>
-      <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7125')">RM7,125</button> <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7225')">RM7,225</button> <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7325')">RM7,325</button><p id="missionFeedback3" class="feedback" aria-live="polite"></p>
+
+    <div class="example">
+      <span class="tag">🧠 Challenge 3 · The Final Key</span>
+      <h3>The princess buys three gifts.</h3>
+      <p>
+        🎁 Gift A: RM2,450<br>
+        🎁 Gift B: RM3,275<br>
+        🎁 Gift C: RM1,500
+      </p>
+      <p><strong>What is the total cost?</strong></p>
+
+      <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7125')">RM7,125</button>
+      <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7225')">RM7,225</button>
+      <button class="btn yellow" type="button" onclick="checkMoneyMission(3,'7325')">RM7,325</button>
+
+      <p id="missionFeedback3" class="feedback" aria-live="polite"></p>
     </div>
-    <div class="total-box"><div class="tag">YOUR TREASURE SCORE</div><div class="total-number" id="missionScore">0/3</div><p id="missionResult">Complete all three challenges to collect your badge!</p><button class="btn" type="button" onclick="resetMoneyMission()">🔄 Play Again</button></div>
+
+    <div class="total-box">
+      <div class="tag">YOUR TREASURE SCORE</div>
+      <div class="total-number" id="missionScore">0/3</div>
+      <p id="missionResult">
+        Complete all three challenges to collect your badge!
+      </p>
+      <button class="btn" type="button" onclick="resetMoneyMission()">
+        🔄 Play Again
+      </button>
+    </div>
+
   </div>
 
-<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; overflow: hidden; border-radius: 16px;">
-  <iframe
-    src="https://view.genially.com/6ade12c016fb94416fbd1c38"
-    title="Money Detectives: The Lost Treasure"
-    frameborder="0"
-    width="1200"
-    height="675"
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-    allowfullscreen="true"
-    scrolling="yes">
-  </iframe>
-</div>
- </section>
+  <!-- GENIALLY MONEY DETECTIVES -->
+  <div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;border-radius:16px;margin-top:24px">
+    <iframe
+      src="https://view.genially.com/6ade12c016fb94416fbd1c38"
+      title="Money Detectives: The Lost Treasure"
+      frameborder="0"
+      width="1200"
+      height="675"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+      allowfullscreen="true"
+      scrolling="yes">
+    </iframe>
+  </div>
 
-<!-- SHOP: only one shop section -->
+  <div class="notice" style="margin-top:16px;text-align:center">
+    <strong>🔎 Money Detectives: The Lost Treasure</strong>
+    <p>
+      If the Genially activity does not appear above,
+      open it directly in a new tab.
+    </p>
+    <a class="btn mint"
+       href="https://view.genially.com/6ade12c016fb94416fbd1c38"
+       target="_blank"
+       rel="noopener noreferrer">
+      🕵️ Open Money Detectives
+    </a>
+  </div>
+
+</section>
+
+<!-- ================= SHOP & SOLVE PAGE ================= -->
 <section class="page" id="shop">
-  <div class="hero"><span class="eyebrow">Station 03 · Apply</span><h1>🛍️ Shop &amp; Solve!</h1><p class="lead">Welcome to the Money Matters Mini Market! Follow each shopping mission, add the prices and calculate the correct change.</p></div>
-  <div class="section-heading"><div><h2>🎀 Mini Market Adventure</h2><p>Complete the assigned shopping tasks to become a Money Master!</p></div></div>
+
+  <div class="hero">
+    <span class="eyebrow">Station 03 · Apply</span>
+    <h1>🛍️ Shop &amp; Solve!</h1>
+    <p class="lead">
+      Welcome to the Money Matters Mini Market! Follow each shopping
+      mission, add the prices and calculate the correct change.
+    </p>
+  </div>
+
+  <div class="section-heading">
+    <div>
+      <h2>🎀 Mini Market Adventure</h2>
+      <p>Complete the assigned shopping tasks to become a Money Master!</p>
+    </div>
+  </div>
+
   <div class="card">
+
     <div style="text-align:center;font-size:3rem">🛒💗💰</div>
+
     <h2 style="text-align:center">Your Shopping Mission</h2>
-    <p>Open the interactive Canva presentation and follow the instructions on each slide. Read each shopping list carefully before calculating.</p>
-    <div class="notice"><strong>Remember!</strong> Follow the products and quantities given in each mission. Do not choose your own products unless the mission tells you to.</div>
-    <h3>🌟 How to Play</h3>
-    <ol class="list"><li>Open the Mini Market Adventure.</li><li>Read the assigned shopping mission carefully.</li><li>Identify the required products and their prices.</li><li>Add the prices to find the total cost.</li><li>Calculate the change from the amount paid.</li><li>Select your answer and check the feedback on the activity slides.</li></ol>
-    <div class="button-row" style="justify-content:center"><a class="btn" href="https://canva.link/mini-market-adventure" target="_blank" rel="noopener noreferrer">🚀 Start Mini Market Adventure</a></div>
-    <p class="small" style="text-align:center;margin-top:18px">The activity opens in a new tab. Make sure the Canva presentation is published and accessible to your pupils.</p>
-  </div>
-  <div class="grid">
-    <div class="card"><h3>🧮 Mathematics Skills</h3><ul class="list"><li>Addition of money</li><li>Calculating total costs</li><li>Subtracting to calculate change</li><li>Solving real-life shopping problems</li></ul></div>
-    <div class="card"><h3>🎯 Learning Outcome</h3><p>Pupils will apply addition of money in a shopping situation and calculate the change correctly using the given information.</p><span class="tag">Year 3 Mathematics</span> <span class="tag">Malaysian Ringgit (RM)</span></div>
-  </div>
-  <div class="example"><h3>💡 Quick Practice</h3><p>A pupil buys two items costing RM3.20 and RM2.50.</p><p class="mathline">RM3.20 + RM2.50 = RM5.70</p><p>If the pupil pays RM10.00:</p><p class="mathline">RM10.00 − RM5.70 = RM4.30</p><p>So, the change is <strong>RM4.30</strong>.</p></div>
-  <div class="button-row"><button class="btn secondary" data-go="explore">← Back to Explore It!</button><button class="btn mint" data-go="quiz">Next: Quiz Quest! →</button></div>
-</section>
 
-<!-- QUIZ QUEST -->
-<section class="page" id="quiz">
-  <div id="quizQuest">
-    <header class="hero quiz-hero">
-      <span class="eyebrow">Station 04 · Check Your Learning</span>
-      <h1>🏆 Quiz Quest!</h1>
-      <p class="lead">Welcome, Money Master! 💗 Answer all ten questions about adding money. Check your answers and aim for at least 8 out of 10!</p>
-    </header>
+    <p>
+      Open the interactive Canva presentation and follow the
+      instructions on each slide. Read each shopping list carefully
+      before calculating.
+    </p>
 
-    <div class="quiz-progress">
-      <div class="progress-top"><span>💖 Your progress</span><span id="answeredCount">0 / 10 answered</span></div>
-      <div class="progress-track"><div id="progressFill"></div></div>
+    <div class="notice">
+      <strong>Remember!</strong>
+      Follow the products and quantities given in each mission.
+      Do not choose your own products unless the mission tells you to.
     </div>
 
-    <form id="quizForm">
-      <fieldset class="quiz-q"><legend>Q1. RM1,250 + RM2,375 = ?</legend><label class="option"><input type="radio" name="q1" value="a"> RM3,525</label><label class="option"><input type="radio" name="q1" value="b"> RM3,625</label><label class="option"><input type="radio" name="q1" value="c"> RM3,725</label><div class="feedback" id="f1"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q2. RM2,430 + RM1,560 = ?</legend><label class="option"><input type="radio" name="q2" value="a"> RM3,990</label><label class="option"><input type="radio" name="q2" value="b"> RM3,890</label><label class="option"><input type="radio" name="q2" value="c"> RM4,090</label><div class="feedback" id="f2"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q3. RM3,250 + RM2,400 = ?</legend><label class="option"><input type="radio" name="q3" value="a"> RM5,550</label><label class="option"><input type="radio" name="q3" value="b"> RM5,650</label><label class="option"><input type="radio" name="q3" value="c"> RM5,750</label><div class="feedback" id="f3"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q4. RM4,125 + RM875 = ?</legend><label class="option"><input type="radio" name="q4" value="a"> RM4,900</label><label class="option"><input type="radio" name="q4" value="b"> RM5,000</label><label class="option"><input type="radio" name="q4" value="c"> RM5,100</label><div class="feedback" id="f4"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q5. RM1,999 + RM2,001 = ?</legend><label class="option"><input type="radio" name="q5" value="a"> RM3,900</label><label class="option"><input type="radio" name="q5" value="b"> RM4,100</label><label class="option"><input type="radio" name="q5" value="c"> RM4,000</label><div class="feedback" id="f5"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q6. RM1,250 + RM875 = ?</legend><label class="option"><input type="radio" name="q6" value="a"> RM2,125</label><label class="option"><input type="radio" name="q6" value="b"> RM2,225</label><label class="option"><input type="radio" name="q6" value="c"> RM2,325</label><div class="feedback" id="f6"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q7. A school buys items for RM2,350 and RM1,450. What is the total?</legend><label class="option"><input type="radio" name="q7" value="a"> RM3,700</label><label class="option"><input type="radio" name="q7" value="b"> RM3,800</label><label class="option"><input type="radio" name="q7" value="c"> RM3,900</label><div class="feedback" id="f7"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q8. RM2,450 + RM3,275 = ?</legend><label class="option"><input type="radio" name="q8" value="a"> RM5,625</label><label class="option"><input type="radio" name="q8" value="b"> RM5,725</label><label class="option"><input type="radio" name="q8" value="c"> RM5,825</label><div class="feedback" id="f8"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q9. RM1,250 + RM2,375 + RM875 = ?</legend><label class="option"><input type="radio" name="q9" value="a"> RM4,400</label><label class="option"><input type="radio" name="q9" value="b"> RM4,500</label><label class="option"><input type="radio" name="q9" value="c"> RM4,600</label><div class="feedback" id="f9"></div></fieldset>
-      <fieldset class="quiz-q"><legend>Q10. A school spends RM2,450, RM3,275 and RM1,500. What is the total?</legend><label class="option"><input type="radio" name="q10" value="a"> RM7,125</label><label class="option"><input type="radio" name="q10" value="b"> RM7,225</label><label class="option"><input type="radio" name="q10" value="c"> RM7,325</label><div class="feedback" id="f10"></div></fieldset>
+    <h3>🌟 How to Play</h3>
 
-      <div class="button-row">
-        <button class="btn" type="submit">✨ Check My Answers</button>
-        <button class="btn secondary" type="reset">🔄 Try Again</button>
-      </div>
-    </form>
+    <ol class="list">
+      <li>Open the Mini Market Adventure.</li>
+      <li>Read the assigned shopping mission carefully.</li>
+      <li>Identify the required products and their prices.</li>
+      <li>Add the prices to find the total cost.</li>
+      <li>Calculate the change from the amount paid.</li>
+      <li>Select your answer and check the feedback on the activity slides.</li>
+    </ol>
 
-    <section id="quizResult" aria-live="polite" aria-atomic="true">
-      <h2>🌸 Your Quiz Result 🌸</h2>
-      <div id="scoreNumber">? / 10</div>
-      <p id="resultMessage">Choose your answers above, then click Check My Answers!</p>
-    </section>
+    <div class="button-row" style="justify-content:center">
+      <a class="btn"
+         href="https://canva.link/mini-market-money-adventure-app"
+         target="_blank"
+         rel="noopener noreferrer">
+        🚀 Start Mini Market Adventure
+      </a>
+    </div>
 
+    <p class="small" style="text-align:center;margin-top:18px">
+      Canva activities open in a new tab. If pupils see an access message,
+      update the Canva share settings so anyone with the link can view
+      or use the activity.
+    </p>
 
-<!-- BONUS PRACTICE: WAYGROUND -->
-<div class="card" id="wayground-bonus">
-  <h2>🎮 Bonus Practice: Wayground!</h2>
-  <p>
-    Great job, Money Master! 💗 Continue your learning
-    with this extra Year 3 Money Addition activity.
-  </p>
-
-  <div style="
-    background:#fff0f7;
-    border:2px solid #f7b8d2;
-    border-radius:16px;
-    padding:22px;
-    text-align:center;
-    margin-top:18px;
-  ">
-    <h3 style="color:#b83270;">
-      🌸 Money Addition Challenge 🌸
-    </h3>
-
-<!-- BONUS PRACTICE: WAYGROUND -->
-<div id="wayground-bonus"
-     style="display:block!important;visibility:visible!important;opacity:1!important;background:#fff0f7;border:2px solid #f7b8d2;border-radius:18px;padding:24px;margin:24px 0;text-align:center;">
-
-  <h2 style="color:#b83270;">🎮 Bonus Practice: Wayground!</h2>
-
-  <p>Ready for another Money Addition Challenge? 💗</p>
-
-  <a href="https://wayground.com/join?gc=06071805"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="display:inline-block!important;visibility:visible!important;background:#b83270;color:#ffffff;padding:14px 24px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:16px;">
-    🚀 Open Wayground Quiz
-  </a>
-
-  <p style="font-size:13px;margin-top:14px;">
-    Click the button to join the activity.
-  </p>
-</div>
-<!-- END BONUS PRACTICE -->
-
-<!-- CLOSE QUIZ CONTAINERS -->
   </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>🧮 Mathematics Skills</h3>
+      <ul class="list">
+        <li>Addition of money</li>
+        <li>Calculating total costs</li>
+        <li>Subtracting to calculate change</li>
+        <li>Solving real-life shopping problems</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Learning Outcome</h3>
+      <p>
+        Pupils will apply addition of money in a shopping situation
+        and calculate the change correctly using the given information.
+      </p>
+      <span class="tag">Year 3 Mathematics</span>
+      <span class="tag">Malaysian Ringgit (RM)</span>
+    </div>
+
+  </div>
+
+  <div class="example">
+    <h3>💡 Quick Practice</h3>
+    <p>A pupil buys two items costing RM3.20 and RM2.50.</p>
+    <p class="mathline">RM3.20 + RM2.50 = RM5.70</p>
+    <p>If the pupil pays RM10.00:</p>
+    <p class="mathline">RM10.00 − RM5.70 = RM4.30</p>
+    <p>So, the change is <strong>RM4.30</strong>.</p>
+  </div>
+
+  <div class="button-row">
+    <button class="btn secondary" data-go="explore">
+      ← Back to Explore It!
+    </button>
+    <button class="btn mint" data-go="quiz">
+      Next: Quiz Quest! →
+    </button>
+  </div>
+
 </section>
 
-<footer><strong>Math Adventure: Money Matters</strong> · Learn, explore, shop and shine! 🎀</footer>
+<!-- ================= QUIZ QUEST PAGE ================= -->
+<section class="page" id="quiz">
+
+  <div class="hero">
+    <span class="eyebrow">Station 04 · Check Your Learning</span>
+    <h1>🏆 Quiz Quest!</h1>
+    <p class="lead">
+      You have learned, explored and shopped. Now show what you know
+      about adding money in the Wayground challenge!
+    </p>
+  </div>
+
+  <div class="card" style="margin-top:24px;text-align:center">
+
+    <div style="font-size:3rem">🎮💗🏆</div>
+
+    <h2>Money Addition Challenge</h2>
+
+    <p>
+      Click the button below to open your Year 3 Money Addition quiz
+      on Wayground. Follow the instructions, answer the questions
+      and review your result.
+    </p>
+
+    <div class="notice">
+      <strong>Before you start</strong>
+      <ol class="list" style="text-align:left">
+        <li>Make sure you have an internet connection.</li>
+        <li>Click <strong>Open Wayground Quiz</strong>.</li>
+        <li>Enter the activity and answer each question carefully.</li>
+        <li>Submit your answers and check your score.</li>
+      </ol>
+    </div>
+
+    <a class="btn"
+       href="https://wayground.com/join/pre-game/running/U2FsdGVkX19cceuWRCtK74krskNpvcOmukrlk4rNYGsit2WYg0JDJcCQOTFtAmgmj4KNBzWceGdcsiv89rXoXw%253D%253D/start"
+       target="_blank"
+       rel="noopener noreferrer">
+      🚀 Open Wayground Quiz
+    </a>
+
+    <p class="small" style="margin-top:16px">
+      The quiz opens in a new tab. This direct link is provided
+      as the reliable option if the platform does not allow embedding.
+    </p>
+
+  </div>
+
+  <div class="grid" style="margin-top:18px">
+
+    <div class="card">
+      <h3>🎯 What you are practising</h3>
+      <ul class="list">
+        <li>Adding two or more money values</li>
+        <li>Using place value accurately</li>
+        <li>Regrouping when necessary</li>
+        <li>Solving everyday money problems</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🌟 Your goal</h3>
+      <p>
+        Try your best, read the feedback and learn from any mistakes.
+        Every attempt helps you become a more confident Money Master!
+      </p>
+      <span class="tag">Year 3 Mathematics</span>
+      <span class="tag">Money Addition</span>
+    </div>
+
+  </div>
+
+  <div class="button-row">
+    <button class="btn secondary" data-go="shop">
+      ← Back to Shop &amp; Solve
+    </button>
+    <button class="btn mint" data-go="home">
+      Return Home 🏠
+    </button>
+  </div>
+
+</section>
+
+<footer>
+  <strong>Math Adventure: Money Matters</strong>
+  · Learn, explore, shop and shine! 🎀
+  <br>
+  <span style="font-size:.85rem">
+    External activities open in a new tab when direct embedding
+    is restricted by the provider.
+  </span>
+</footer>
 
 <script>
-/* PAGE NAVIGATION */
+
+/* ================= PAGE NAVIGATION ================= */
+
 function showPage(pageId) {
+
   document.querySelectorAll('.page').forEach(function(page) {
     page.classList.toggle('active', page.id === pageId);
   });
+
   document.querySelectorAll('nav button[data-page]').forEach(function(button) {
     button.classList.toggle('active', button.dataset.page === pageId);
   });
+
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -837,7 +998,9 @@ document.querySelectorAll('[data-go]').forEach(function(button) {
   });
 });
 
-/* INTERACTIVE MONEY LAB */
+
+/* ================= INTERACTIVE MONEY LAB ================= */
+
 const amountA = document.getElementById('amountA');
 const amountB = document.getElementById('amountB');
 
@@ -846,6 +1009,7 @@ function money(value) {
 }
 
 function updateLab() {
+
   const a = Number(amountA.value);
   const b = Number(amountB.value);
   const sum = a + b;
@@ -853,8 +1017,10 @@ function updateLab() {
   document.getElementById('labelA').textContent = money(a);
   document.getElementById('labelB').textContent = money(b);
   document.getElementById('total').textContent = money(sum);
+
   document.getElementById('equation').textContent =
     money(a) + ' + ' + money(b) + ' = ' + money(sum);
+
   document.getElementById('limitNote').textContent =
     sum <= 10000
       ? 'Great exploring! The total is within RM10,000.'
@@ -870,140 +1036,75 @@ document.getElementById('resetLab').addEventListener('click', function() {
   updateLab();
 });
 
-/* TREASURE HUNT */
-const missionAnswers = {1:'3625', 2:'3750', 3:'7225'};
-const missionDone = {1:false, 2:false, 3:false};
+
+/* ================= TREASURE HUNT ================= */
+
+const missionAnswers = {
+  1:'3625',
+  2:'3750',
+  3:'7225'
+};
+
+const missionDone = {
+  1:false,
+  2:false,
+  3:false
+};
 
 function checkMoneyMission(number, answer) {
+
   const feedback = document.getElementById('missionFeedback' + number);
   const correct = answer === missionAnswers[number];
 
   if (correct) {
+
     missionDone[number] = true;
-    feedback.textContent = '🌟 Correct! You unlocked this challenge.';
+
+    feedback.textContent =
+      '🌟 Correct! You unlocked this challenge.';
+
     feedback.className = 'feedback show correct';
+
   } else {
+
     missionDone[number] = false;
-    feedback.textContent = '💗 Not quite. Try calculating the amounts again.';
+
+    feedback.textContent =
+      '💗 Not quite. Try calculating the amounts again.';
+
     feedback.className = 'feedback show incorrect';
   }
 
   const score = Object.values(missionDone).filter(Boolean).length;
+
   document.getElementById('missionScore').textContent = score + '/3';
+
   document.getElementById('missionResult').textContent =
     score === 3
       ? '👑 Congratulations! You are a Money Master!'
       : 'Keep going! Complete all three challenges to collect your badge.';
 }
 
+
 function resetMoneyMission() {
+
   [1,2,3].forEach(function(number) {
+
     missionDone[number] = false;
+
     const feedback = document.getElementById('missionFeedback' + number);
+
     feedback.textContent = '';
     feedback.className = 'feedback';
   });
+
   document.getElementById('missionScore').textContent = '0/3';
+
   document.getElementById('missionResult').textContent =
     'Complete all three challenges to collect your badge!';
 }
 
-/* QUIZ QUEST */
-(function() {
-  const form = document.getElementById('quizForm');
-
-  const answers = {
-    q1:'b', q2:'a', q3:'b', q4:'b', q5:'c',
-    q6:'a', q7:'b', q8:'b', q9:'b', q10:'b'
-  };
-
-  const explanations = {
-    q1:'RM1,250 + RM2,375 = RM3,625.',
-    q2:'RM2,430 + RM1,560 = RM3,990.',
-    q3:'RM3,250 + RM2,400 = RM5,650.',
-    q4:'RM4,125 + RM875 = RM5,000.',
-    q5:'RM1,999 + RM2,001 = RM4,000.',
-    q6:'RM1,250 + RM875 = RM2,125.',
-    q7:'RM2,350 + RM1,450 = RM3,800.',
-    q8:'RM2,450 + RM3,275 = RM5,725.',
-    q9:'RM1,250 + RM2,375 + RM875 = RM4,500.',
-    q10:'RM2,450 + RM3,275 + RM1,500 = RM7,225.'
-  };
-
-  function updateProgress() {
-    const answered = Object.keys(answers).filter(function(question) {
-      return form.querySelector('input[name="' + question + '"]:checked');
-    }).length;
-
-    document.getElementById('answeredCount').textContent =
-      answered + ' / 10 answered';
-    document.getElementById('progressFill').style.width =
-      (answered * 10) + '%';
-  }
-
-  form.addEventListener('change', updateProgress);
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    let score = 0;
-
-    Object.keys(answers).forEach(function(question, index) {
-      const chosen = form.querySelector(
-        'input[name="' + question + '"]:checked'
-      );
-      const feedback = document.getElementById('f' + (index + 1));
-      const correct = chosen && chosen.value === answers[question];
-
-      if (correct) {
-        score++;
-        feedback.textContent = '🌟 Correct! ' + explanations[question];
-        feedback.className = 'feedback show correct';
-      } else {
-        feedback.textContent =
-          (chosen ? '💗 Not quite. ' : '💡 No answer selected. ') +
-          explanations[question];
-        feedback.className = 'feedback show incorrect';
-      }
-    });
-
-    document.getElementById('scoreNumber').textContent = score + ' / 10';
-
-    let message;
-    if (score === 10) {
-      message = '👑 Perfect score! You are a Money Master!';
-    } else if (score >= 8) {
-      message = '🎉 Amazing! You reached the target of at least 8/10!';
-    } else if (score >= 5) {
-      message = '🌸 Good effort! Read the feedback and try again to improve your score.';
-    } else {
-      message = '💪 Keep practising! Revisit Learn It and try these questions again.';
-    }
-
-    document.getElementById('resultMessage').textContent =
-      message + ' You scored ' + score + ' out of 10.';
-
-    document.getElementById('quizResult').scrollIntoView({
-      behavior:'smooth',
-      block:'center'
-    });
-  });
-
-  form.addEventListener('reset', function() {
-    setTimeout(function() {
-      document.querySelectorAll('#quizQuest .feedback').forEach(function(feedback) {
-        feedback.textContent = '';
-        feedback.className = 'feedback';
-      });
-
-      document.getElementById('scoreNumber').textContent = '? / 10';
-      document.getElementById('resultMessage').textContent =
-        'Choose your answers above, then click Check My Answers!';
-      updateProgress();
-    }, 0);
-  });
-
-  updateProgress();
-})();
 </script>
+
 </body>
 </html>
