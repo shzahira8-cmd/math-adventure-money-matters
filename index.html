@@ -1106,5 +1106,128 @@ function resetMoneyMission() {
 
 </script>
 
+  
+<div id="encouragement-box">
+  <div class="encouragement-card">
+    <div class="star">✨</div>
+    <h2>Words of Encouragement</h2>
+    <p class="subtitle">A little motivation for your Math Adventure!</p>
+
+    <div id="encouragement-message">
+      You are capable of amazing things. Keep learning! 💗
+    </div>
+
+    <button onclick="newEncouragement()">
+      ✨ Get Encouragement
+    </button>
+
+    <p class="footer">Believe in yourself. Every step counts! 🌸</p>
+  </div>
+</div>
+
+<style>
+  #encouragement-box {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 25px 12px;
+    background: linear-gradient(135deg, #ffe0f0, #fce4ff, #fff0f5);
+    border-radius: 20px;
+  }
+
+  #encouragement-box .encouragement-card {
+    max-width: 550px;
+    margin: auto;
+    padding: 30px 20px;
+    background: white;
+    border: 3px solid #ffb6d9;
+    border-radius: 22px;
+    box-shadow: 0 6px 18px rgba(220, 100, 160, 0.15);
+  }
+
+  #encouragement-box .star {
+    font-size: 38px;
+  }
+
+  #encouragement-box h2 {
+    color: #e7549b;
+    margin: 10px 0;
+    font-size: 26px;
+  }
+
+  #encouragement-box .subtitle {
+    color: #91617d;
+    font-size: 15px;
+  }
+
+  #encouragement-message {
+    background: #fff0f7;
+    color: #a83272;
+    padding: 22px 15px;
+    margin: 22px 0;
+    border-radius: 15px;
+    font-size: 19px;
+    font-weight: bold;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #encouragement-box button {
+    background: #ed65a7;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  #encouragement-box button:hover {
+    background: #d9438c;
+    transform: scale(1.05);
+  }
+
+  #encouragement-box .footer {
+    color: #b36b91;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+</style>
+
+<script>
+  (function () {
+    const messages = [
+      "You are capable of amazing things. Keep learning! 💗",
+      "Every mistake is a chance to learn something new! 🌸",
+      "Believe in yourself. You can do it! ⭐",
+      "Small steps every day lead to big achievements! 💕",
+      "You are a math superstar! Keep shining! ✨",
+      "Don't give up! Your hard work will pay off! 🌷",
+      "Learning is an adventure. Enjoy every moment! 🎀",
+      "You are smarter than you think! Keep going! 💖",
+      "Be proud of how far you have come! 🌈",
+      "Keep trying, keep smiling, and never stop learning! 🦋"
+    ];
+
+    let lastIndex = -1;
+
+    window.newEncouragement = function () {
+      let index;
+
+      do {
+        index = Math.floor(Math.random() * messages.length);
+      } while (index === lastIndex && messages.length > 1);
+
+      lastIndex = index;
+
+      document.getElementById("encouragement-message").textContent =
+        messages[index];
+    };
+  })();
+</script>
+  
 </body>
 </html>
