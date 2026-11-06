@@ -1038,12 +1038,19 @@ document.querySelectorAll('nav button[data-page]').forEach(function(button) {
   });
 });
 
-document.querySelectorAll('[data-go]').forEach(function(button) {
-  button.addEventListener('click', function() {
-    showPage(button.dataset.go);
-  });
-});
 
+/* ================= PAGE BUTTON NAVIGATION ================= */
+
+document.addEventListener('click', function(event) {
+
+  const button = event.target.closest('[data-go]');
+
+  if (button) {
+    const destination = button.dataset.go;
+    showPage(destination);
+  }
+
+});
 
 /* ================= INTERACTIVE MONEY LAB ================= */
 
