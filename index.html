@@ -1104,133 +1104,494 @@ function resetMoneyMission() {
 
 </script>
 
-  <button data-page="encouragement">
-  💗 Words of Encouragement
-  </button>
-  <section id="encouragement" class="page">
-  <!-- Paste your Words of Encouragement HTML here -->
-  </section>
-<div id="encouragement-box">
-  <div class="encouragement-card">
-    <div class="star">✨</div>
-    <h2>Words of Encouragement</h2>
-    <p class="subtitle">A little motivation for your Math Adventure!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div id="encouragement-message">
-      You are capable of amazing things. Keep learning! 💗
-    </div>
+<title>Words of Encouragement 💗</title>
 
-    <button onclick="newEncouragement()">
-      ✨ Get Encouragement
-    </button>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <p class="footer">Believe in yourself. Every step counts! 🌸</p>
+.encouragement-page {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  min-height: 100vh;
+  padding: 35px 18px;
+  background:
+    radial-gradient(circle at 10% 10%, #fff 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 30%, #fff 0 3px, transparent 4px),
+    linear-gradient(135deg, #ffd6e9, #efdfff, #ffeaf4);
+  background-size: 65px 65px, 90px 90px, cover;
+  color: #74365f;
+  overflow: hidden;
+}
+
+.encouragement-container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.encouragement-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.encouragement-header .crown {
+  font-size: 55px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.encouragement-header h1 {
+  color: #d63384;
+  font-size: clamp(30px, 5vw, 48px);
+  margin: 10px 0;
+  text-shadow: 2px 3px 0 white;
+}
+
+.encouragement-header p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.encouragement-card {
+  background: rgba(255,255,255,.94);
+  border: 4px solid #ffacd2;
+  border-radius: 30px;
+  padding: 30px 22px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(197, 81, 147, .2);
+}
+
+.encouragement-label {
+  display: inline-block;
+  background: #ffe1f0;
+  color: #bd3e81;
+  padding: 8px 17px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.encouragement-card h2 {
+  color: #c63d86;
+  font-size: 25px;
+  margin: 18px 0 8px;
+}
+
+.encouragement-card .subtitle {
+  color: #92718b;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.message-display {
+  min-height: 160px;
+  margin: 25px 0;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff0f7, #f4eaff);
+  border: 2px dashed #ec91c0;
+  border-radius: 22px;
+}
+
+.message-emoji {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+#motivationMessage {
+  color: #a52e70;
+  font-size: clamp(19px, 3vw, 24px);
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.generate-button {
+  border: none;
+  background: linear-gradient(135deg, #f26aa9, #c35ad9);
+  color: white;
+  padding: 15px 27px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #a93b86;
+  transition: .25s;
+}
+
+.generate-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 9px 0 #a93b86;
+}
+
+.generate-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #a93b86;
+}
+
+.encouragement-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.secondary-button {
+  border: 2px solid #e9a2ca;
+  background: white;
+  color: #bd3e81;
+  padding: 11px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.secondary-button:hover {
+  background: #ffe1f0;
+}
+
+.daily-box {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #fff1c9, #ffe2ef);
+  padding: 22px;
+  border-radius: 22px;
+  text-align: center;
+  border: 2px solid white;
+}
+
+.daily-box h3 {
+  color: #ad5b78;
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+#dailyMessage {
+  color: #98526e;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.positive-rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.rule-card {
+  background: rgba(255,255,255,.85);
+  padding: 17px 12px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid #f7c5df;
+}
+
+.rule-card .emoji {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.rule-card h3 {
+  color: #bd3e81;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.rule-card p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #85647b;
+}
+
+.encouragement-footer {
+  text-align: center;
+  margin-top: 28px;
+  color: #a54e83;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sparkle {
+  display: inline-block;
+  animation: sparkle 1.5s infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .55; transform: scale(1.2); }
+}
+
+@media(max-width:600px) {
+  .positive-rules {
+    grid-template-columns: 1fr;
+  }
+
+  .encouragement-card {
+    padding: 24px 15px;
+  }
+
+  .encouragement-page {
+    padding: 25px 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="encouragement-page">
+
+  <div class="encouragement-container">
+
+    <!-- HEADER -->
+    <header class="encouragement-header">
+      <div class="crown">👑</div>
+
+      <h1>Words of Encouragement</h1>
+
+      <p>
+        Welcome to your little corner of positivity! 💗<br>
+        Remember, you are wonderful, smart and capable.
+      </p>
+    </header>
+
+    <!-- MAIN MOTIVATION CARD -->
+    <section class="encouragement-card">
+
+      <span class="encouragement-label">
+        ✨ YOUR DAILY DOSE OF POSITIVITY ✨
+      </span>
+
+      <h2>You Are Amazing! 🎀</h2>
+
+      <p class="subtitle">
+        Click the button below and receive a special
+        message to brighten your day.
+      </p>
+
+      <div class="message-display">
+
+        <div class="message-emoji" id="messageEmoji">
+          💖
+        </div>
+
+        <div id="motivationMessage" aria-live="polite">
+          Believe in yourself! You can achieve wonderful things.
+        </div>
+
+      </div>
+
+      <button
+        class="generate-button"
+        id="generateMessage"
+        type="button">
+        ✨ Give Me Motivation!
+      </button>
+
+      <div class="encouragement-actions">
+
+        <button
+          class="secondary-button"
+          id="shareMessage"
+          type="button">
+          💌 Copy My Message
+        </button>
+
+        <button
+          class="secondary-button"
+          id="resetMessage"
+          type="button">
+          🔄 Start Again
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- DAILY MESSAGE -->
+    <section class="daily-box">
+
+      <h3>🌷 A Little Reminder</h3>
+
+      <p id="dailyMessage">
+        You don't have to be perfect. Just keep trying
+        and believe in your progress!
+      </p>
+
+    </section>
+
+    <!-- POSITIVE REMINDERS -->
+    <section class="positive-rules">
+
+      <div class="rule-card">
+        <span class="emoji">💗</span>
+        <h3>Believe</h3>
+        <p>Believe in your abilities and trust yourself.</p>
+      </div>
+
+      <div class="rule-card">
+        <span class="emoji">🌟</span>
+        <h3>Keep Trying</h3>
+        <p>Every challenge is an opportunity to improve.</p>
+      </div>
+
+      <div class="rule-card">
+        <span class="emoji">🦋</span>
+        <h3>Never Give Up</h3>
+        <p>Small steps can lead to amazing achievements.</p>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="encouragement-footer">
+      <p>
+        <span class="sparkle">✨</span>
+        Be confident. Be kind. Be yourself.
+        <span class="sparkle">✨</span>
+      </p>
+
+      <p>
+        Remember: You are a STAR! Keep shining! 💕
+      </p>
+    </footer>
+
   </div>
 </div>
 
-<style>
-  #encouragement-box {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 25px 12px;
-    background: linear-gradient(135deg, #ffe0f0, #fce4ff, #fff0f5);
-    border-radius: 20px;
-  }
-
-  #encouragement-box .encouragement-card {
-    max-width: 550px;
-    margin: auto;
-    padding: 30px 20px;
-    background: white;
-    border: 3px solid #ffb6d9;
-    border-radius: 22px;
-    box-shadow: 0 6px 18px rgba(220, 100, 160, 0.15);
-  }
-
-  #encouragement-box .star {
-    font-size: 38px;
-  }
-
-  #encouragement-box h2 {
-    color: #e7549b;
-    margin: 10px 0;
-    font-size: 26px;
-  }
-
-  #encouragement-box .subtitle {
-    color: #91617d;
-    font-size: 15px;
-  }
-
-  #encouragement-message {
-    background: #fff0f7;
-    color: #a83272;
-    padding: 22px 15px;
-    margin: 22px 0;
-    border-radius: 15px;
-    font-size: 19px;
-    font-weight: bold;
-    min-height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #encouragement-box button {
-    background: #ed65a7;
-    color: white;
-    border: none;
-    padding: 14px 25px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-
-  #encouragement-box button:hover {
-    background: #d9438c;
-    transform: scale(1.05);
-  }
-
-  #encouragement-box .footer {
-    color: #b36b91;
-    font-size: 13px;
-    margin-top: 20px;
-  }
-</style>
-
 <script>
-  (function () {
-    const messages = [
-      "You are capable of amazing things. Keep learning! 💗",
-      "Every mistake is a chance to learn something new! 🌸",
-      "Believe in yourself. You can do it! ⭐",
-      "Small steps every day lead to big achievements! 💕",
-      "You are a math superstar! Keep shining! ✨",
-      "Don't give up! Your hard work will pay off! 🌷",
-      "Learning is an adventure. Enjoy every moment! 🎀",
-      "You are smarter than you think! Keep going! 💖",
-      "Be proud of how far you have come! 🌈",
-      "Keep trying, keep smiling, and never stop learning! 🦋"
-    ];
+(function () {
 
-    let lastIndex = -1;
+  const messages = [
+    "You are capable of amazing things. Keep learning! 💗",
+    "Every mistake is a chance to learn something new! 🌸",
+    "Believe in yourself. You can do it! ⭐",
+    "Small steps every day lead to big achievements! 💕",
+    "You are a Math Superstar! Keep shining! ✨",
+    "Don't give up! Your hard work will pay off! 🌷",
+    "Learning is an adventure. Enjoy every moment! 🎀",
+    "You are smarter than you think! Keep going! 💖",
+    "Be proud of how far you have come! 🌈",
+    "Keep trying, keep smiling, and never stop learning! 🦋",
+    "Mistakes help your brain grow stronger! 💡",
+    "You are unique, wonderful and amazing! 👑",
+    "Success starts with believing in yourself! 💗",
+    "One step at a time. You are doing great! 🌟",
+    "Keep practising. You are getting better every day! 🌸",
+    "Your effort today builds your success tomorrow! 💪",
+    "You can do difficult things. Take one step at a time! 🌻",
+    "Never compare your journey with someone else's. You are growing at your own pace! 🦋",
+    "You have the power to turn challenges into achievements! 💎",
+    "Shine bright and let your confidence grow! ✨"
+  ];
 
-    window.newEncouragement = function () {
-      let index;
+  const emojis = [
+    "💖","🌸","⭐","💕","✨",
+    "🌷","🎀","💗","🌈","🦋",
+    "💡","👑","🌟","🌻","💎"
+  ];
 
-      do {
-        index = Math.floor(Math.random() * messages.length);
-      } while (index === lastIndex && messages.length > 1);
+  const dailyMessages = [
+    "You don't have to be perfect. Just keep trying and believe in your progress!",
+    "Your effort matters more than getting everything right on the first try!",
+    "Every day is a new opportunity to learn something wonderful!",
+    "Be proud of yourself. You are growing every single day!",
+    "A positive mind can help you overcome any challenge!"
+  ];
 
-      lastIndex = index;
+  let previousIndex = -1;
 
-      document.getElementById("encouragement-message").textContent =
-        messages[index];
-    };
-  })();
+  const messageText = document.getElementById("motivationMessage");
+  const messageEmoji = document.getElementById("messageEmoji");
+  const generateButton = document.getElementById("generateMessage");
+  const copyButton = document.getElementById("shareMessage");
+  const resetButton = document.getElementById("resetMessage");
+  const dailyMessage = document.getElementById("dailyMessage");
+
+  function generateRandomMessage() {
+
+    let randomIndex;
+
+    do {
+      randomIndex = Math.floor(Math.random() * messages.length);
+    } while (randomIndex === previousIndex && messages.length > 1);
+
+    previousIndex = randomIndex;
+
+    messageText.textContent = messages[randomIndex];
+
+    messageEmoji.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+  }
+
+  generateButton.addEventListener("click", generateRandomMessage);
+
+  copyButton.addEventListener("click", async function () {
+
+    const text = messageText.textContent;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      copyButton.textContent = "💗 Copied Successfully!";
+
+    } catch (error) {
+      const temporary = document.createElement("textarea");
+      temporary.value = text;
+      document.body.appendChild(temporary);
+      temporary.select();
+
+      try {
+        document.execCommand("copy");
+        copyButton.textContent = "💗 Copied Successfully!";
+      } catch (copyError) {
+        copyButton.textContent = "Please select and copy the message.";
+      }
+
+      temporary.remove();
+    }
+
+    setTimeout(function () {
+      copyButton.textContent = "💌 Copy My Message";
+    }, 2000);
+
+  });
+
+  resetButton.addEventListener("click", function () {
+
+    previousIndex = -1;
+
+    messageText.textContent =
+      "Believe in yourself! You can achieve wonderful things.";
+
+    messageEmoji.textContent = "💖";
+  });
+
+  const randomDaily =
+    Math.floor(Math.random() * dailyMessages.length);
+
+  dailyMessage.textContent = dailyMessages[randomDaily];
+
+})();
 </script>
-  
+
 </body>
 </html>
+
