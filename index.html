@@ -732,24 +732,99 @@ hr { border:0;border-top:1px solid #efe2f1;margin:24px 0; }
       challenge to unlock her treasure.
     </p>
 
-    <!-- OFFICIAL POLYPAD EMBED ELEMENT -->
-    <script src="https://polypad.amplify.com/polypad.js"></script>
-    <div style="width:100%;height:600px;border-radius:16px;overflow:hidden;margin-top:20px;border:2px solid #edc8e1;background:#fff;">
-      <polypad-embed id="GNryyUPYvX34Fw"></polypad-embed>
-    </div>
+   
+<!-- POLYPAD MONEY TREASURE CHALLENGE -->
 
-    <div class="notice" style="margin-top:16px;text-align:center">
-      <strong>🔎 Money Detectives: POLYPAD CANVAS</strong>
-      <p>
-        If the canvas does not appear above, click below to open it directly.
-      </p>
-      <a class="btn mint"
-         href="https://polypad.amplify.com/p/GNryyUPYvX34Fw"
-         target="_blank"
-         rel="noopener noreferrer">
-        🕵️ Open Polypad in New Tab
-      </a>
-    </div>
+<script src="https://polypad.amplify.com/polypad.js"></script>
+
+<section class="money-polypad">
+  <h2>🏝️ Money Treasure Challenge</h2>
+  <p>
+    Welcome, Money Detectives! Explore Malaysian money,
+    build different combinations and unlock the treasures.
+  </p>
+
+  <div class="polypad-frame">
+    <polypad-embed id="GNryyUPYvX34Fw"></polypad-embed>
+  </div>
+
+  <div class="polypad-notice">
+    <strong>🔎 Money Detectives: Polypad Canvas</strong>
+    <p>
+      Ready to explore? Complete all three money missions!
+    </p>
+    <a href="https://polypad.amplify.com/p/GNryyUPYvX34Fw"
+       target="_blank"
+       rel="noopener noreferrer">
+       Open Polypad in New Tab
+    </a>
+  </div>
+</section>
+
+<style>
+.money-polypad {
+  width: 100%;
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 22px;
+  box-sizing: border-box;
+  background: #fff8ed;
+  border-radius: 20px;
+}
+
+.money-polypad h2 {
+  text-align: center;
+  color: #b7791f;
+  font-size: 28px;
+}
+
+.money-polypad > p {
+  text-align: center;
+  color: #665b4b;
+  line-height: 1.6;
+}
+
+.polypad-frame {
+  width: 100%;
+  height: 650px;
+  margin-top: 20px;
+  border: 2px solid #edc8e1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+}
+
+.polypad-frame polypad-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.polypad-notice {
+  margin-top: 16px;
+  padding: 15px;
+  text-align: center;
+  background: #f4eafa;
+  border-radius: 14px;
+}
+
+.polypad-notice a {
+  display: inline-block;
+  padding: 11px 20px;
+  background: #8cbbac;
+  color: #173e35;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+@media(max-width:600px) {
+  .polypad-frame {
+    height: 600px;
+  }
+}
+</style>
+
 
     <div class="button-row" style="margin-top:20px;">
       <button class="btn" data-go="shop">
